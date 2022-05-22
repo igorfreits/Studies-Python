@@ -1,0 +1,5 @@
+print('Quanto você tem na Carteira?R$ ')
+N=float(input('R$: '))
+print(f'R${N} = U${N/5.16 :.2f}')
+print(f'R${N} = €{N/5.79 :.2f}')
+print(f'R${N} = ¥{N/0.045 :.2f}')
