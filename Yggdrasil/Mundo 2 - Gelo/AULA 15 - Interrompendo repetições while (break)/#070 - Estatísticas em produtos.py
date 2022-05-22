@@ -2,18 +2,21 @@ print('-'*30)
 print('Kwik-E-Mart')
 print('-'*30)
 
-preçototal = 0
-valormax = ''
-milzao =
+preçototal = thousand = menor = contador = 0
+barato = ''
 
 while True:
     produto = str(input('Nome do Produto: '))
     preço = float(input('preço R$: '))
-
     preçototal += preço
+    contador += 1
 
     if preço > 1000:
-        valormax = produto
+        thousand += 1
+
+    if contador == 1 or preço < menor:  # Simplificação
+        menor = preço
+        barato = produto
 
     compra = ' '
     while compra not in 'SN':
@@ -22,9 +25,10 @@ while True:
     if compra == 'N':
         break
 
-print('-'*30)
-print('Fim do programa')
-print('-'*30)
 
-print(f'O valor da sua compra deu {preço:.2f} R$')
-print(f'')
+print(f'{"Fim do programa":-^40}')
+
+
+print(f'O valor da sua compra deu R${preço:.2f}')
+print(f'Temos {thousand} produtos acima de R$1000.00 ')
+print(f'O produto mais barato custa R${menor:.2f}')
