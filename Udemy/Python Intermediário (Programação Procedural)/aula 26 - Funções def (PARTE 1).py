@@ -37,4 +37,5 @@ saudação('Olá', 'Igor')
 saudação('Oie', 'Michele')
 # Pode ser invertido, mas tem, que usar o parametro
 saudação(nome='Israel', msg='Hello')
-# caudação()  # Sera exibido o valor padrão
+# saudação()  # Sera exibido o valor padrão
+
