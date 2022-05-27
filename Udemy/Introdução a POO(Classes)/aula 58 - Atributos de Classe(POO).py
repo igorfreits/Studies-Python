@@ -2,7 +2,8 @@
 
 
 class A:
-    vc = 123  # Variável da classeDisponível para todas as instancia da classe
+    vc = 123  # Variável da classe
+    # Disponível para todas as instancia da classe
 
     def __init__(self):
         # self.vc = 321 Variável de instance
