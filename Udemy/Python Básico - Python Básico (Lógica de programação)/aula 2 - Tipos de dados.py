@@ -4,12 +4,12 @@
 # "Texto"
 
 # int = numero inteiro
-#-123, 456
+# -123, 456
 
 # float = numero real/ponto flutuante
 # 1.5, -10.6
 
-# bool = booleano/logico
+# bool = booleans/logico
 # True/False - comparação de valor - 0 ou coisas vazias são considerados False
 
 print('Igor', type('Igor'))  # nome

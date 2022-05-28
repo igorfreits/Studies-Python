@@ -9,7 +9,7 @@
 # 4 = underline / sublinhar
 # 7 = negative / inverte as configurações
 
-#TEXT
+# TEXT
 # 30 = branco
 # 31 = vermelho
 # 32 = verde
@@ -19,7 +19,7 @@
 # 36 = ciano
 # 37 = cinza
 
-#BACKGROUND
+# BACKGROUND
 # 40 = branco
 # 41 = vermelho
 # 42 = verde
@@ -40,9 +40,9 @@ b = 3
 print('Os valores são \033[32m{}\033[m e \033[31m{}\033[m!!!'.format(a, b))
 
 nome = 'Igor'
-cores = {'limpa':'\033[m',
-         'azul':'\033[34m',
-         'amarelo':'\033[33m',
-         'preto e branco':'\033[7;30'}
-print('Olá! Muito prazer em te conhecer, {}{}{}!!!'.format(cores['azul'], nome, '\033[m',))
-
+cores = {'limpa': '\033[m',
+         'azul': '\033[34m',
+         'amarelo': '\033[33m',
+         'preto e branco': '\033[7;30'}
+print('Olá! Muito prazer em te conhecer, {}{}{}!!!'.format(
+    cores['azul'], nome, '\033[m',))

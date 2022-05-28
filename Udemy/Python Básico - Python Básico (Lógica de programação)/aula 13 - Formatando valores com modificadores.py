@@ -3,8 +3,8 @@ Formatando valores com modificadores
 
 :s - Texto (strings)
 :d - Inteiros (int)
-:f - Numeros de ponto flutuante (float)
-:. - (numero)f - quantidade de cas decimais (float)  EX: :.2f
+:f - Números de ponto flutuante (float)
+:. - (numero)f - quantidade de casa decimais (float)  EX: :.2f
 ;(caractere)(> ou < ou ^)(quantidade)(tipo - s,d ou f)
 
 > - esquerda

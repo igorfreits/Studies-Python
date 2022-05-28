@@ -1,7 +1,7 @@
 """Variáveis
 
 = Atribuição
-#iniciar com letra, pode conter numeros, separar com _, letras minusculas"""
+#iniciar com letra, pode conter números, separar com _, letras minusculas"""
 
 nome = 'Igor'
 idade = 23
@@ -15,7 +15,7 @@ print('Nome: ', nome)
 print('Idade: ', idade)
 print('Altura: ', altura)
 print('É de maior:', e_maior)
-print(nome , 'tem', idade, 'anos de idade e seu imc é de: ', imc)
+print(nome, 'tem', idade, 'anos de idade e seu imc é de: ', imc)
 
 print('{} tem {} anos de idade e pesa {} kg'.format(nome, idade, peso))
 print('{} tem um IMC de {:.2f}'.format(nome, imc))
