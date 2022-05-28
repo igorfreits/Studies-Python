@@ -8,12 +8,12 @@ Tuplas()
 t1 = (1, 2, 3, 'Igor')  # tuple
 print(type(t1))
 
-t2 = ()  # Tupla vazia (Precisa de pelo meno s dois itens)
+t2 = ()  # Tupla vazia (Precisa de pelo menos dois itens)
 print(type(t2))
 
 print(t1[3])  # Acessar item especifico
 
-for t in t1:  # Tuplas são iteraveis
+for t in t1:  # Tuplas são iteráveis
     print(t)
 
 print(t1[2:])  # Fatiamento
@@ -37,5 +37,5 @@ t7 = list(t7)  # Converte um tupla em lista
 print(t7)
 
 t7[1] = 3000
-t7 = tuple(t7)  # COnverte um lista em tupla
+t7 = tuple(t7)  # Converte um lista em tupla
 print(t7)
