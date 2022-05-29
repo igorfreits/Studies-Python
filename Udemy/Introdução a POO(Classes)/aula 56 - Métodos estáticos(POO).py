@@ -8,7 +8,8 @@ from random import randint
 
 
 class Pessoa:
-    ano_atual = 2022  # Atributo de classe e esta disponível para todas as instancias
+    ano_atual = 2022
+    # Atributo de classe e esta disponível para todas as instancias
 
     def __init__(self, nome, idade):
         # Estão relacionados a instancia(self) e precisam receber uma instancia

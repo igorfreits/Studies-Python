@@ -1,4 +1,4 @@
-"""Encapsulamento"""
+"""Encapsulamento(POO)"""
 
 # Encapsulamento - proteger/esconder partes do código
 
