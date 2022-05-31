@@ -5,7 +5,7 @@ programação mais modernas segue o paradigma de programação
 onde você tenta retratar coisas do mundo
 real como objetos dentro do seu programa
 """
-from pessoa import Pessoa
+from pessoaclass import Pessoa
 # Pode usar a nome da class com maiúsculo
 # Método é uma função que pertence a classe
 # self - instancia EX: (pessoa1)
