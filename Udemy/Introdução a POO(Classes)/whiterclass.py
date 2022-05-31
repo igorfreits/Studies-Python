@@ -5,6 +5,8 @@ class Writer:  # Escritor
 
     @property
     def name(self):
+        # Não é possível acessar um atributo privado fora da classe
+        # Pra acessar o atributo privada é preciso criar um getter
         return self.__name
 
     @property
