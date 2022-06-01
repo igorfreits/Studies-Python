@@ -1,11 +1,45 @@
 """ Composição(POO)"""
-from clientclass import Client
+
+"""A classe endereço pertence à classe cliente
+Quando a classe cliente é criada e cria uma classe endereço assim
+que ela for apagada a classe endereço que foi usada por ela
+também será apagada da memória.
+
+Isso se chama composição relação de composição"""
+
 # Relação de composição
 """Composição, uma classe usa, depende e mantém uma referencia da outra classe
 (se a classe principal morre, as filhas também morrem)"""
 
 """Se a classe principal for apagada todos os objetos
 que a classe principal utilizou vão ser apagados com ela"""
+
+
+class Client:
+    def __init__(self, name, year):
+        self.name = name
+        self.year = year
+        self.adresses = []  # Endereços
+
+    def insert_address(self, city, state):  # cidade e estado
+        self.adresses.append(Address(city, state))
+
+    def list_address(self):
+        for address in self.adresses:
+            print(address.city, address.state)
+
+    def __del__(self):
+        print(f'{self.name} FOI APAGADO')
+
+
+class Address:
+    def __init__(self, city, state):
+        self.city = city
+        self.state = state
+
+    def __del__(self):
+        print(f'{self.city}/{self.state} FOI APAGADO')
+
 
 client1 = Client('Igor', 23)
 client1.insert_address('Portugal', 'PT')
