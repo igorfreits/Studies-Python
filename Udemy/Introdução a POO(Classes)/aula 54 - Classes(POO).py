@@ -5,10 +5,16 @@ programação mais modernas segue o paradigma de programação
 onde você tenta retratar coisas do mundo
 real como objetos dentro do seu programa
 """
-from pessoaclass import Pessoa
+# Modulo classe Pessoa
+# Precisa de um molde usando o class
+# Usar letra maiúscula no inicio
+# Método é uma função que pertence a classe
+# __init__ inicializa o objeto quando vai criar uma instância daquela classe
+
 # Pode usar a nome da class com maiúsculo
 # Método é uma função que pertence a classe
 # self - instancia EX: (pessoa1)
+
 
 # criar um objeto a partir do meu molde que é a minha classe
 # eu tenho que instância para esse objeto
@@ -28,6 +34,66 @@ Todas as letras serão minúsculas e separadas por um underline, como em: minha_
 
 Os padrões usados em Python são: snake_case para qualquer coisa e PascalCase para classes.
 """
+
+
+
+
+from datetime import datetime
+class Pessoa:
+    ano_atual = int(datetime.strftime(datetime.now(), '%Y'))
+    """Se for criado uma variável dentro do __init__
+    ela so estará disponível dentro do escopo do __init__"""
+
+    def __init__(self, nome, idade, comendo=False, falando=False):
+        self.nome = nome
+        self.idade = idade
+        self.comendo = comendo
+        self.falando = falando
+
+    def falar(self, assunto):
+        if self.comendo:
+            print(f'{self.nome} não pode falar comendo.')
+            return
+
+        if self.falando:
+            print(f'{self.nome} já está falando.')
+            return
+
+        print(f'{self.nome} está falando sobre {assunto}.')
+        self.falando = True
+
+    def parar_falar(self):
+        if not self.falando:
+            print(f'{self.nome} não está falando')
+            return
+
+        print(f'{self.nome} parou de falar.')
+        self.falando = False
+
+    def comer(self, alimento):
+        if self.comendo:
+            print(f'{self.nome} já está comendo.')
+            return
+
+        if self.falando:
+            print(f'{self.nome} não pode comer falando.')
+            return
+
+        print(f'{self.nome} está comendo {alimento}.')
+        self.comendo = True
+
+    def parar_comer(self):
+        if not self.comendo:
+            print(f'{self.nome} não está comendo.')
+            return
+
+        print(f'{self.nome} parou de comer.')
+        self.comendo = False
+
+    def get_ano_nascimento(self):
+        return self.ano_atual - self.idade
+
+
 pessoa1 = Pessoa('a', 1)
 pessoa2 = Pessoa('b', 2)
 # São pessoas, mas estão em locais diferentes da memoria
