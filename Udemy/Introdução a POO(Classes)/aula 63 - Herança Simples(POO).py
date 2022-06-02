@@ -4,7 +4,8 @@
 """
 Herda os atributos da Super classe/classe pai e defini seus próprios atributos
 
-# A classe caneta escreve e a sua herança lapiseira também escreve, mas também pode escreve em gravite
+# A classe caneta escreve e a sua herança lapiseira também escreve,
+# mas também pode escreve em gravite
 
 A herança é um princípio próprio à programação orientada a objetos (POO)
 que permite criar uma nova classe a partir de uma já existente.
