@@ -23,6 +23,9 @@ Herança - é
 """
 
 
+
+
+from matplotlib.style import library
 class People:  # Super classe/Classe pai
     def __init__(self, name, year):
         self.name = name
@@ -59,3 +62,29 @@ a1.studying()
 
 p1 = People('Isra', 14)
 p1.speak()
+
+# Reforço
+# Herda  atributos da classe pai
+"""
+Animal #classe pai-> Respirar
+    wolf(animal)#classe filho -> Respirar/uivar
+    dog(animal)#classe filho -> Respirar/uivar/latir
+
+# O que as classes filhas fazem nao afeta a classe pai
+# dog herda de wolf(de cima pra baixo)
+# Se classe pai respira os demais também terão
+"""
+
+
+class Library:
+    def call_interface_method(self):  # chama método da interface
+        self.interface_method()
+
+
+class Interface(Library):
+    def interface_method(self):  # método da interface
+        print('Sou o método da interface')
+
+
+i1 = Interface()
+# i1 = call_interface_method() - Precisa estar dentro de um pacote(Pasta)
