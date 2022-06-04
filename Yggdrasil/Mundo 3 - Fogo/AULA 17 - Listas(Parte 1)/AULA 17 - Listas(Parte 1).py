@@ -6,7 +6,7 @@ lanche = ['hambúrguer', 'suco', 'pizza', 'pudim']  # [0, 1 , 2 , 3]'
 print(lanche[3])
 
 # Comandos da lista
-lanche.append('Picole')  # .append() -Adiciona um item no final da lista
+lanche.append('Picolé')  # .append() -Adiciona um item no final da lista
 # .insert() - Adiciona um item na posição selecionada
 lanche.insert(0, 'Coxinha')
 del lanche[3]  # del - Apaga o item selecionado
