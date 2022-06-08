@@ -5,7 +5,7 @@ REGRESSIVOS = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
 
 def valida(cnpj):
-    cnpj = apenas_numeros(cnpj)
+    cnpj = apenas_números(cnpj)
 
     try:
         if eh_sequencia(cnpj):
@@ -36,8 +36,8 @@ def calcula_digito(cnpj, digito):
         return None
 
     total = 0
-    for indice, regressivo in enumerate(regressivos):
-        total += int(cnpj[indice]) * regressivo
+    for índice, regressivo in enumerate(regressivos):
+        total += int(cnpj[índice]) * regressivo
 
     digito = 11 - (total % 11)
     digito = digito if digito <= 9 else 0
@@ -54,7 +54,7 @@ def eh_sequencia(cnpj):
         return False
 
 
-def apenas_numeros(cnpj):
+def apenas_números(cnpj):
     return re.sub(r'[^0-9]', '', cnpj)
 
 
@@ -75,6 +75,6 @@ def gera():
 
 
 def formata(cnpj):
-    cnpj = apenas_numeros(cnpj)
+    cnpj = apenas_números(cnpj)
     formatado = f'{cnpj[:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:14]}'
     return formatado
