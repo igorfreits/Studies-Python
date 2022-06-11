@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 """ Polimorfismo de sobreposição(POO)"""
 
-"""Polimorfismo é p principio que permite que classes derivadas de uma mesma
+"""Polimorfismo é o principio que permite que classes derivadas de uma mesma
 superclasse tenham métodos iguais (de mesma assinatura) mas comportamentos
 diferente
 Mesma assinatura = mesma quantidade e tipo de parâmetros"""

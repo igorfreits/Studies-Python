@@ -23,9 +23,6 @@ Herança - é
 """
 
 
-
-
-from matplotlib.style import library
 class People:  # Super classe/Classe pai
     def __init__(self, name, year):
         self.name = name
