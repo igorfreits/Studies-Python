@@ -12,7 +12,7 @@ else:
 
     print('Voce não digitou nada!')
 
-print(nome or 'Voce não digitou nada!')  # Resumo do códigoacima
+print(nome or 'Voce não digitou nada!')  # Resumo do código acima
 
 print(nome or None or False or 0 or 'Voce não digitou nada' or 'Outra coisa')
 
@@ -24,6 +24,6 @@ e = {}
 f = 23
 g = 'Colomk'
 
-variavel = a or b or c or d or e or f or g
+variável = a or b or c or d or e or f or g
 
-print(variavel)  # ira parar no primeiro valor verdadeiro
+print(variável)  # ira parar no primeiro valor verdadeiro

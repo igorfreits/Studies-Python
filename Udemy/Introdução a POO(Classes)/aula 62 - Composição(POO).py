@@ -19,13 +19,13 @@ class Client:
     def __init__(self, name, year):
         self.name = name
         self.year = year
-        self.adresses = []  # Endereços
+        self.addresses = []  # Endereços
 
     def insert_address(self, city, state):  # cidade e estado
-        self.adresses.append(Address(city, state))
+        self.addresses.append(Address(city, state))
 
     def list_address(self):
-        for address in self.adresses:
+        for address in self.addresses:
             print(address.city, address.state)
 
     def __del__(self):

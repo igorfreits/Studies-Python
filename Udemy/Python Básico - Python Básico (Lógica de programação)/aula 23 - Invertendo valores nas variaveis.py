@@ -1,5 +1,5 @@
 """
-Invertendo valores nas variaveis
+Invertendo valores nas variáveis
 """
 
 x = 10
