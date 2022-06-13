@@ -50,10 +50,11 @@ for root, folders, files in os.walk(original_path):
             map_legend = ''
         name_file, file_extension = os.path.splitext(file)
 
-        output_file = f'{command_ffmpeg}/{name_file}_new{file_extension}'
+        # Salva na mesma pasta, mas renomeia o arquivo
+        new_file_name = name_file + '_new' + file_extension
+        output_file = os.path.join(root, name_file)
 
         command = f' {command_ffmpeg} -i ""{full_path}" {input_legend}'
         f'{codec_video}{code_audio}{crf}{preset}{bitrate_audio}{debug}{output_file}'
 
         os.system(command)
-
