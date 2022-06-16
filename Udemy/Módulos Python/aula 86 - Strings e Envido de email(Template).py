@@ -5,6 +5,20 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import smtplib
+
+"""O módulo smtplib define um objeto de sessão do cliente SMTP que
+pode ser usado para enviar mensagens para qualquer máquina da
+Internet com um daemon de escuta SMTP ou ESMTP
+
+-https://docs.python.org/pt-br/3/library/smtplib.html
+"""
+
+"""
+O pacote email é uma biblioteca para gerenciar mensagens de e-mail.
+
+-https://docs.python.org/pt-br/3/library/email.html
+-https://docs.python.org/pt-br/3/library/email.mime.html"""
+
 """A configuração de segurança lesssecureapps não está mais disponível no google"""
 # Multipart - Padrão para enviar, assunto, destinatário e remetente
 # Text - Corpo do email,pode ser texto ou um texto html

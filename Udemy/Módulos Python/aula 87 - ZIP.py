@@ -2,6 +2,11 @@
 from zipfile import ZipFile
 import os
 
+""" Este módulo fornece ferramentas para:
+criar, ler, escrever, adicionar, e listar um arquivo ZIP
+
+-https://docs.python.org/pt-br/3/library/zipfile.html
+"""
 way = r'C:\Users\Igor\Desktop\Test'
 
 # Cria um arquivo e colocar arquivos num zip

@@ -3,6 +3,11 @@
 
 import os
 
+
+"""O módulo OS em python fornece funções para interagir com o sistema operacional
+-https://docs.python.org/pt-br/3/library/os.html
+-https://acervolima.com/modulo-de-sistema-operacional-em-python-com-exemplos/"""
+
 """os.path.splitext()método em Python é usado para dividir o nome do
 caminho em um par raiz e ext . Aqui, ext significa extensão e tem a
 parte da extensão do caminho especificado, enquanto root é tudo, exceto a parte ext .
@@ -20,7 +25,8 @@ um separador de diretório ('/') após cada parte não vazia, exceto o último c
 de caminho. Se o último componente do caminho a ser unido estiver vazio,
 um separador de diretório ('/') é colocado no final.
 Se um componente do caminho representa um caminho absoluto,
-todos os componentes anteriores unidos são descartados e a união continua a partir do componente do caminho absoluto."""
+todos os componentes anteriores unidos são descartados e a união continua a partir do
+componente do caminho absoluto."""
 
 way = input('enter a path')  # digite um caminho/Inserir diretório
 term_search = input('type a term')  # digite um termo/nome do arquivo
