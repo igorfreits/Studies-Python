@@ -2,6 +2,14 @@
 import os
 import shutil
 
+
+"""O módulo shutil oferece várias operações de alto nível em arquivos e coleções de arquivos.
+Em particular, são fornecidas funções que possuem suporte a cópia e remoção de arquivos.
+
+--https://docs.python.org/pt-br/3/library/shutil.html
+"""
+
+
 original_path = r'C:\Users\Igor\Desktop\Estudos\Gestão deTI'  # Pasta original
 new_way = r'C:\Users\Igor\Desktop\Estudos\Gestão deTI\serie2'  # nova pasta
 

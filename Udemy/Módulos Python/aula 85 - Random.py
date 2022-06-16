@@ -1,6 +1,18 @@
 """Random - números aleatórios e mais"""
+
 import random
 import string
+"""Este módulo implementa geradores de números
+pseudoaleatórios para várias distribuições.
+
+-https://docs.python.org/pt-br/3.7/library/random.html"""
+
+"""
+O módulo string contém uma classe Template que oferece ainda outra maneira
+de substituir valores em strings, usando espaços reservados como $x e
+substituindo-os por valores de um dicionário, mas oferece muito menos controle da formatação.
+
+-https://docs.python.org/pt-br/3/library/string.html"""
 
 # Gera um numero int entre A e B
 whole1 = random.randint(10, 20)

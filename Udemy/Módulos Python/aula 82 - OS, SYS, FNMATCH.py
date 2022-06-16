@@ -3,8 +3,37 @@
 import sys
 import fnmatch
 import os
-"https://ffmpeg.org/download.html"  # Site de download
-"https://ffmpeg.org/documentation.html"  # Documentation
+
+
+"""O ffmpeg serve para conversão de vídeo com uma enormidade de codecs
+-https://ffmpeg.org/download.html"  # Site de download
+-https://ffmpeg.org/documentation.html"  # Documentation"""
+
+"""fnmatch é usado para combinar curingas no estilo shell do Unix.
+fnmatch() compara um único nome de arquivo com um padrão e retorna VERDADEIRO
+se eles corresponderem, caso contrário, retorna FALSO.
+A comparação diferencia maiúsculas de minúsculas quando o sistema operacional
+usa um sistema de arquivos com distinção entre maiúsculas e minúsculas.
+Os caracteres especiais e suas funções usados ​​em curingas no estilo shell são:
+
+'*' - corresponde a tudo
+'?' - corresponde a qualquer caractere único
+'[seq]' - corresponde a qualquer caractere na seq
+'[! seq]' - corresponde a qualquer caractere que não esteja em seq
+Os metacaracteres devem ser colocados entre colchetes para uma correspondência literal.
+Por exemplo, '[?]' Corresponde ao caractere '?'"""
+
+"""O módulo sys fornece funções e variáveis ​​usadas para manipular diferentes
+partes do ambiente de tempo de execução do Python e apesar de serem
+completamente diferentes, muitas pessoas confundem o módulo sys e o módulo os
+(módulo para manipular o sistema operacional).
+
+Com o módulo sys você pode por exemplo, saber qual a plataforma do dispositivo
+que está rodando o seu código, obter os caminhos de sistema que o interpretador
+Python utiliza, módulos importados, versão do Python, entre outros.
+
+-https://docs.python.org/pt-br/3/library/sys.html
+"""
 
 """
 ffmpeg -i
