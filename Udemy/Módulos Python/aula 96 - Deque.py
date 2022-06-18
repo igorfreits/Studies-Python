@@ -7,6 +7,8 @@ Fila (queue) - FIFO - first in, first out
     Example: Uma fila de banco(ou qualquer fila da vida real)
 Filas podem ter efeitos colaterais em desempenho, porque a cada item
 alterado, todos os indices serão modificados
+
+-https://acervolima.com/deque-em-python/
 """
 from collections import deque
 from time import sleep
