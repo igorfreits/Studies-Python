@@ -1,13 +1,15 @@
 """Pillow: redimensionando várias imagens automaticamente
 
-A Python Imaging Library (expansão do PIL) é o pacote de processamento de imagens
-de fato para a linguagem Python. Ele incorpora ferramentas leves de processamento
-de imagem que auxiliam na edição, criação e salvamento de imagens. O suporte para
-Python Imaging Library foi descontinuado em 2011, mas um projeto chamado pillow
-bifurcou o projeto PIL original e adicionou suporte Python3.x a ele.
-O pillow foi anunciado como um substituto do PIL para uso futuro.
-O Pillow oferece suporte a um grande número de formatos de arquivo de imagem,
-incluindo BMP, PNG, JPEG e TIFF. A biblioteca incentiva a adição de suporte para
+A Python Imaging Library (expansão do PIL) é o pacote de
+processamento de imagens de fato para a linguagem Python.
+Ele incorpora ferramentas leves de processamento
+de imagem que auxiliam na edição, criação e salvamento de imagens.
+O suporte para Python Imaging Library foi descontinuado em 2011,
+mas um projeto chamado pillow bifurcou o projeto PIL original e
+adicionou suporte Python3.x a ele. O pillow foi anunciado como um
+substituto do PIL para uso futuro. O Pillow oferece suporte a um
+grande número de formatos de arquivo de imagem, incluindo
+BMP, PNG, JPEG e TIFF. A biblioteca incentiva a adição de suporte para
 formatos mais novos na biblioteca, criando novos decodificadores de arquivo.
 
 
@@ -74,5 +76,6 @@ par raiz e ext"""
 
 
 if __name__ == '__main__':
-    main_images_folder = r'C:\Users\Igor\Desktop\Estudos\Programação em Python\Mundo-invertido\Files\image'
+    main_images_folder = r'C:\Users\Igor\Desktop\Estudos\
+        Programação em Python\Mundo-invertido\Files\image'
     main(main_images_folder, new_width=1920)

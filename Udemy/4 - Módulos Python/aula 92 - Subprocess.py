@@ -7,7 +7,6 @@ conecte-se aos seus canais de entrada/saída/erro e obtenha seus códigos de ret
 -https://docs.python.org/pt-br/dev/library/subprocess.html
 """
 
-
 # Windows - ping 127.0.0.1
 # Linux - ping 127.0.0.1 -c 4
 
