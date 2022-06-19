@@ -3,10 +3,11 @@ from concurrent.futures import thread
 from threading import Thread
 from time import sleep
 from threading import Lock
-from tkinter import W
 
-"""Threads são uma forma de fazer com que a sua aplicação execute tarefas de forma assíncrona,
-por exemplo, enquanto uma estrutura de repetição é executada você pode executar uma outra rotina.
+"""Threads são uma forma de fazer com que a sua aplicação execute tarefas
+de forma assíncrona, por exemplo, enquanto uma estrutura de
+repetição é executada você pode
+executar uma outra rotina.
 
 -Executa multitarefas no scrypt ao invés de executar de forma linear
 
@@ -96,7 +97,8 @@ class Ticket:
         self.lock = Lock()
 
     def purchase(self, inventory):
-        self.lock.acquire()  # Evita que varias pessoas tentam comprar o ingresso(Tranca)
+        # Evita que varias pessoas tentam comprar o ingresso(Tranca)
+        self.lock.acquire()
 
         if self.inventory < inventory:
             # não temos ingresso suficientes
@@ -110,7 +112,8 @@ class Ticket:
 
         self.inventory -= inventory
         print(
-            f'you bought {inventory} ticket(s). we still have {self.inventory} in inventory')
+            f'you bought {inventory} ticket(s). we still have'
+            '{self.inventory} in inventory')
         self.lock.release()  # libera a chave
 
 
