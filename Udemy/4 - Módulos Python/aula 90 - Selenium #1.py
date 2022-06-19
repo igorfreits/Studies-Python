@@ -9,7 +9,6 @@ Você pode fazer isso de várias maneiras, por exemplo
 
 -https://www.selenium.dev/pt-br/documentation/webdriver/getting_started/
 """
-import profile
 from selenium import webdriver
 from time import sleep
 
