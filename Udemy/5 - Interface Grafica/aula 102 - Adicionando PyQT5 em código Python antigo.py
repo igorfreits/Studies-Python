@@ -1,0 +1,1 @@
+"""Adicionando PyQT5 em código Python antigo"""

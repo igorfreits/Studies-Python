@@ -6,7 +6,6 @@ Muito utilizado em APIs
 
 import json
 
-from matplotlib.font_manager import json_load
 from dados_83 import *
 "https://docs.python.org/pt-br/3/library/json.html"
 
