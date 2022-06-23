@@ -17,6 +17,7 @@ def connect():
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
+    # FECHA A CONEXÃO
     try:
         yield connection
     finally:
@@ -74,6 +75,7 @@ with connect() as connection:
         cursor.execute(sql, ('JOÃO', 5))
         connection.commit()
 
+# FECHA O CURSOR
 with connect() as connection:
     with connection.cursor() as cursor:
         cursor.execute('SELECT * FROM clientes ORDER BY id DESC LIMIT 100')
