@@ -36,7 +36,7 @@ def main(main_images_folder, new_width=800):
             new_file = file_name + convert_tag + extension
             new_file_full_path = os.path.join(root, new_file)
 
-            # if convert_tag in full_path: #Remove os arquivos convertidos
+            # if convert_tag in full_path:  # Remove os arquivos convertidos
             #     os.remove(full_path)
             #     print(f'converted {full_path} converted files were deleted')
             # continue
@@ -76,6 +76,7 @@ par raiz e ext"""
 
 
 if __name__ == '__main__':
-    main_images_folder = r'C:\Users\Igor\Desktop\Estudos\
-        Programação em Python\Mundo-invertido\Files\image'
+    main_images_folder = (r'C:\Users\Igor\Desktop\Estudos'
+                          r'\Programação-em-Python'
+                          r'\Mundo-invertido\Files\image')
     main(main_images_folder, new_width=1920)

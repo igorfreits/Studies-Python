@@ -1,6 +1,6 @@
-import dados
-from dados import multiplica
+import one_data
+from one_data import multiplica
 
-print(dados.PI)
+print(one_data.PI)
 
 print(multiplica([2, 4]))

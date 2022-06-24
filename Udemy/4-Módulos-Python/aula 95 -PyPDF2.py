@@ -23,7 +23,7 @@ import os
 
 
 # JUNTAS PDFs
-way = r'C:\Users\Igor\Desktop\Estudos\Programação em Python\Mundo-invertido\Files\Books'
+way = r'C:\Users\Igor\Desktop\Estudos\Programação-em-Python\Mundo-invertido\Files\Books'
 
 new_pdf = PyPDF2.PdfFileMerger()
 for root, dirs, files in os.walk(way):

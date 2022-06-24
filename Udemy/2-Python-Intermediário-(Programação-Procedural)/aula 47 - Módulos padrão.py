@@ -20,5 +20,5 @@ for i in range(10):
     print(randint(0, 10))
 
 for i in range(10):
-    # gera um numero aleatorio entre a e 1 com ponto flutuante
+    # gera um numero aleatório entre a e 1 com ponto flutuante
     print(randint(0, 10), random())

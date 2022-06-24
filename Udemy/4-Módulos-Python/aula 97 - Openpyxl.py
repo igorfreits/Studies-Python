@@ -13,7 +13,7 @@ from random import uniform
 
 # carrega o excel
 requests = openpyxl.load_workbook(
-    r'C:\Users\Igor\Desktop\Estudos\Programação em Python\Mundo-invertido\Files\excel\pedidos.xlsx')
+    r'C:\Users\Igor\Desktop\Estudos\Programação-em-Python\Mundo-invertido\Files\excel\pedidos.xlsx')
 
 # Mostra quantas guias tem no arquivo
 worksheet_name = requests.sheetnames  # Nome da planilha

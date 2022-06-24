@@ -5,8 +5,7 @@ Muito utilizado em APIs
 """
 
 import json
-
-from dados_83 import *
+from dados_83 import clients_dictionary, clients_json
 "https://docs.python.org/pt-br/3/library/json.html"
 
 """
@@ -51,9 +50,10 @@ for key, value in dictionary.items():
     print(key)
     print(value)
 
-with open('clientes_json', 'r') as file:  # cria um arquivo de escrita json
-    json.dump(clients_dictionary, file, indent=4)
+# ERROR
+# with open('clientes_json', 'r') as file:  # cria um arquivo de escrita json
+#     json.dump(clients_dictionary, file, indent=4)
 
-with open('clientes_json', 'r') as file:  # convert o arquivo json criado
-    dados = json.load(file)
-print(dados)
+# with open('clientes_json', 'r') as file:  # convert o arquivo json criado
+#     dados = json.load(file)
+# print(dados)
