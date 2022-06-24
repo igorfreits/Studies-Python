@@ -24,8 +24,8 @@ class New(QMainWindow, Ui_MainWindow):  # Importa class criada no QtDesigner
         image, _ = QFileDialog.getOpenFileName(
             self.centralwidget,
             'Open image',
-            r'C:\Users\Igor\Desktop\Estudos\Programação em Python'
-            r'\Mundo-invertido\Files\image'
+            r'C:\Users\Igor\Desktop\Estudos\Programação-em-Python'
+            r'\Mundo-invertido\Udemy\4-Módulos-Python\image'
         )
         self.inputOpenFile.setText(image)
         self.original_img = QPixmap(image)
