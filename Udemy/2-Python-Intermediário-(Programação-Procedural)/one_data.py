@@ -1,7 +1,8 @@
 # IMPORTAÇÕES
+# aula 48.2
 import json
 from math import pi
-import dadosone
+import two_data
 
 """
 Aula 41, 42,43
@@ -68,7 +69,7 @@ aula 49
 def aumento(valor, porcentagem, formata=False):
     r = valor + (valor * (porcentagem / 100))
     if formata:
-        return dadosone.real(r)
+        return two_data.real(r)
     else:
         return r
 
@@ -76,7 +77,7 @@ def aumento(valor, porcentagem, formata=False):
 def redução(valor, porcentagem, formata=False):
     r = valor - (valor * (porcentagem / 100))
     if formata:
-        return dadosone.real(r)
+        return two_data.real(r)
     else:
         return r
 

@@ -9,7 +9,7 @@ PI = pi
 
 
 def dobra_lista(lista):
-    return [x * 2for x in lista]
+    return [x * 2 for x in lista]
 
 
 def multiplica(lista):

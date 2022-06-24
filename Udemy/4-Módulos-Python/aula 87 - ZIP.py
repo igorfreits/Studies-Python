@@ -7,7 +7,8 @@ criar, ler, escrever, adicionar, e listar um arquivo ZIP
 
 -https://docs.python.org/pt-br/3/library/zipfile.html
 """
-way = r'C:\Users\Igor\Desktop\Estudos\Programação em Python\Mundo-invertido\Files\Books'
+way = (r'C:\Users\Igor\Desktop\Estudos'
+       r'\Programação-em-Python\Mundo-invertido\Files\Books')
 
 # Cria um arquivo e colocar arquivos num zip
 with ZipFile('file.zip', 'w') as zip:

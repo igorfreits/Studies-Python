@@ -1,6 +1,5 @@
-"""Sys.argv - Executando arquivos com argumentos no sistema"""
+"""Sys.argv - Executando arquivos com argumentos no sistema
 
-"""
 1° - Passar o versão do python desejadas(windows: python "arquivo.py")
 2° - Passar scrypt
 """
