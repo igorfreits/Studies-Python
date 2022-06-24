@@ -77,6 +77,5 @@ par raiz e ext"""
 
 if __name__ == '__main__':
     main_images_folder = (r'C:\Users\Igor\Desktop\Estudos'
-                          r'\Programação-em-Python'
-                          r'\Mundo-invertido\Files\image')
+                          r'\Programação-em-Python\Mundo-invertido\Udemy\4-Módulos-Python\image')
     main(main_images_folder, new_width=1920)
