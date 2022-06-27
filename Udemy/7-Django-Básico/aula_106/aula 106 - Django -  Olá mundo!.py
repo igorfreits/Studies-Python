@@ -17,13 +17,13 @@ X - nome do projeto/app
     wsgi.py
 
 -Apps - sessões (EX: pagina inicial, produtos, sobre, blog)
+    python manage.py startapp "Nome do app"(TERMINAL)
     Registrar em INSTALLED_APPS(settings.py-principal)
         "X"."X"Config - blog.BlogConfig
-    Criar url referente ao app que foi criado(urls.py)
+    Criar url referente ao app que foi criado(urls.py) - importar o include
         path('X'/,include('X.urls)) - path('blog/', include('blog.urls'))
         Criar urls.py dentro da pasta do app criado
     Deve setar as sessões em urls(EX: ling que redimensiona pro blog)
-    python manage.py startapp "Nome do app"(TERMINAL)
-    
+
 -Migrations - Base de dados
 """
