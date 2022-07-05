@@ -18,7 +18,8 @@ class PostIndex(ListView):
     # def get_queryset(self):
     #     qs = super().get_queryset()
     #     qs = qs.select_related('categoria_post')
-    #     qs = qs.order_by('-id').filter(publicacao_post=True)
+
+    # # qs = qs.order_by('-id').filter(publicacao_post=True)
     #     qs = qs.annotate(
     #         numero_comentarios=Count(
     #             Case(
@@ -27,7 +28,7 @@ class PostIndex(ListView):
     #             )
     #         )
     #     )
-    # return qs
+    #     return qs
 
 
 class PostBusca(PostIndex):
