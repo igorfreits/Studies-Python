@@ -17,7 +17,8 @@ class Post(models.Model):
         Categoria, on_delete=models.DO_NOTHING, blank=True, null=True, verbose_name='Categoria')
     imagem_post = models.ImageField(
         upload_to='posts_img/%Y/%m/%d', null=True, blank=True, verbose_name='Imagem')
-    publicacao_post = models.BooleanField(default=False,verbose_name='Publicado')
+    publicacao_post = models.BooleanField(
+        default=False, verbose_name='Publicado')
 
     def __str__(self):
         return self.titulo_post

@@ -8,7 +8,7 @@ from django.utils import timezone
 class Comentarios(models.Model):
     nome_comentario = models.CharField(max_length=150, verbose_name='Nome')
     email_comentario = models.EmailField(verbose_name='Email')
-    comentario = models.TextField(verbose_name='Comentarios')
+    comentario = models.TextField(verbose_name='Comentários')
     post_comentario = models.ForeignKey(
         Post, on_delete=models.CASCADE, verbose_name='Post comentado')
     usuario_comentario = models.ForeignKey(User, on_delete=models.DO_NOTHING)

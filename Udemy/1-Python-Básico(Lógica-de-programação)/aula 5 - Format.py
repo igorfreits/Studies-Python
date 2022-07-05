@@ -1,5 +1,5 @@
 '''Formatar  String
-f ou .formar()'''
+f ou .format()'''
 
 nome = 'Igor'
 idade = 23
