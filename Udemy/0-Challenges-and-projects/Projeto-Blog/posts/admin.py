@@ -6,7 +6,7 @@ from .models import Post
 
 
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('id', 'titulo_post', 'Autor_post', 'data_post',
+    list_display = ('id', 'titulo_post', 'autor_post', 'data_post',
                     'categoria_post', 'publicacao_post',)
 
     list_editable = ('publicacao_post',)
