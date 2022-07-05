@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sslserver',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -136,10 +138,13 @@ MESSAGE_TAGS = {
 
 INSTALLED_APPS += ('django_summernote', )
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
+SECURE_CONTENT_TYPE_NOSNIFF = None
+SECURE_BROWSER_XSS_FILTER = None
+SESSION_COOKIE_SECURE = None
+CSRF_COOKIE_SECURE = None
+SECURE_SSL_REDIRECT = None
+SECURE_PROXY_SSL_HEADER = None
 
 try:
     from .local_settings import *
