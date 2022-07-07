@@ -1,8 +1,6 @@
 from django.contrib import admin
 from . import models
 
-# Register your models here.
-
 
 class ItemPedidoInline(admin.TabularInline):
     model = models.ItemPedido
@@ -10,7 +8,9 @@ class ItemPedidoInline(admin.TabularInline):
 
 
 class PedidoAdmin(admin.ModelAdmin):
-    inlines = [ItemPedidoInline]
+    inlines = [
+        ItemPedidoInline
+    ]
 
 
 admin.site.register(models.Pedido, PedidoAdmin)

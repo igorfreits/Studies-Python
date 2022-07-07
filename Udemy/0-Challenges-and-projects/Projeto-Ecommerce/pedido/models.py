@@ -4,28 +4,25 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Pedido(models.Model)
-
-
-usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-total = models.FloatField()
-qtd_total = models.PositiveIntegerField()
-status = models.CharField(
-    default="C",
-    max_length=1,
-    choices=(
-        ('A', 'Aprovado'),
-        ('C', 'Criado'),
-        ('R', 'Reprovado'),
-        ('P', 'Pendente'),
-        ('E', 'Enviado'),
-        ('F', 'Finalizado'),
+class Pedido(models.Model):
+    usuario = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name='Usuário')
+    total = models.FloatField(verbose_name='Total')
+    status = models.CharField(
+        default="C",
+        max_length=1, verbose_name='Status',
+        choices=(
+            ('A', 'Aprovado'),
+            ('C', 'Criado'),
+            ('R', 'Reprovado'),
+            ('P', 'Pendente'),
+            ('E', 'Enviado'),
+            ('F', 'Finalizado'),
+        )
     )
-)
 
-
-def __str__(self):
-    return f'Pedido N.{self.pk}'
+    def __str__(self):
+        return self.usuario.username
 
 
 class ItemPedido(models.Model):
@@ -42,7 +39,7 @@ class ItemPedido(models.Model):
     imagem = models.CharField(max_length=2000, verbose_name='Imagem')
 
     def __str__(self):
-        return f'Item do {self.pedido.pk}'
+        return f'Item do {self.pedido}'
 
     class Meta:
         verbose_name = 'Item do Pedido'
