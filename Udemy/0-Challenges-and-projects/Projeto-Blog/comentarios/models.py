@@ -20,3 +20,7 @@ class Comentarios(models.Model):
 
     def __str__(self):
         return self.nome_comentario
+
+    class Meta:
+        verbose_name = 'Comentário'
+        verbose_name_plural = 'Comentários'
