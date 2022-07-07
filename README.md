@@ -24,7 +24,7 @@ desenvolvimento de sistemas e realizar sua pós-graduação;
 
 Eu sou fascinado por esse assunto e tenho em mente me tornar ainda melhor naquilo que gosto buscando 
 sempre evoluir.
-``
+```
 
 
 ### 📋 Pré-requisitos
