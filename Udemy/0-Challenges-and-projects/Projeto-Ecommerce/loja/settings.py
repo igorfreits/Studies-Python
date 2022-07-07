@@ -34,14 +34,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'produto',
+    'pedido'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sslserver',
     'debug_toolbar',
+    "sslserver",
 ]
 
 MIDDLEWARE = [
@@ -153,12 +154,12 @@ SESSION_SAVE_EVERY_REQUEST = False
 # SESSION_FILE_PATH = ''
 
 
-SECURE_CONTENT_TYPE_NOSNIFF = None
-SECURE_BROWSER_XSS_FILTER = None
-SESSION_COOKIE_SECURE = None
-CSRF_COOKIE_SECURE = None
-SECURE_SSL_REDIRECT = None
-SECURE_PROXY_SSL_HEADER = None
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+SECURE_PROXY_SSL_HEADER = False
 
 INTERNAL_IPS = [
     # ...
