@@ -54,3 +54,6 @@ ul.errorlist li {
     }
 }
 */
+.form-group textarea{
+    width: 100%;
+}
