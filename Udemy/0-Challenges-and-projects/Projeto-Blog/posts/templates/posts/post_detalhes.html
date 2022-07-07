@@ -1,4 +1,5 @@
 {%extends 'static/base.html'%}
+{% load crispy_forms_tags %}
 
 {% block titulo %}{{ post.titulo_post|title }} | Categoria | {% endblock %}
 {% block conteudo %}
@@ -26,7 +27,7 @@
         <img class="img-fluid pb-5 " src="{{ post.imagem_post.url }}" alt="{{ post.titulo_post }}">
         {% endif %}
 
-        {{ post.conteudo_post | safe }}
+        {{ numero_comentarios | safe }}
     </div>
     <div class="col-xl"></div>
 </div>
@@ -65,13 +66,10 @@
             {% endfor %}
 
             {% for visible_field in form.visible_fields %}
-            <div class="form-group">
-                {{ visible_field.label_tag }}<br>
-                {{ visible_field }}
-                {{ visible_field.errors }}
-
-            </div>
+            {{ visible_field | as_crispy_field }}
             {% endfor %}
+            <div class="g-recaptcha" data-sitekey="6LchENEgAAAAAO9CUNmgtofeXkRL3q8gCq_8ICXD"></div>
+            <br />
             {% include 'parciais/_messages.html' %}
             <input id="envia_comentario" type="submit" class="btn btn-primary" value="Enviar">
         </form>
