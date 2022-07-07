@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Pedido(models.Model):
     usuario = models.ForeignKey(
-        User, on_delete=models.CASCADE, verbose_name='Usuário')
+        User, on_delete=models.CASCADE, verbose_name='Usuári')
     total = models.FloatField(verbose_name='Total')
     status = models.CharField(
         default="C",
