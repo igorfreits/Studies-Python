@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contatos.apps.ContatosConfig',
     'accounts.apps.AccountsConfig',
+    "sslserver",
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,3 @@
-from pickletools import optimize
-from tabnanny import verbose
 from django.conf import settings
 import os
 from PIL import Image
@@ -10,19 +8,22 @@ from django.db import models
 
 
 class Produto(models.Model):
-    nome = models.CharField(max_length=100)
-    descricao_curta = models.TextField(max_length=200)
-    descricao_longa = models.TextField()
-    imagem = models.ImageField(upload_to='produto_imagens/%Y/%m')
-    slug = models.SlugField(unique=True)
-    preco_marketing = models.FloatField()
-    preco_marketing_promocional = models.FloatField(default=0)
+    nome = models.CharField(max_length=100, verbose_name='Nome')
+    descricao_curta = models.TextField(
+        max_length=200, verbose_name='Descrição Curta')
+    descricao_longa = models.TextField(verbose_name='Descrição Longa')
+    imagem = models.ImageField(
+        upload_to='produto_imagens/%Y/%m', verbose_name='Imagem')
+    slug = models.SlugField(unique=True, verbose_name='Slug')
+    preco_marketing = models.FloatField(verbose_name='Preço Marketing')
+    preco_marketing_promocional = models.FloatField(
+        default=0, verbose_name='Preço Marketing Promocional')
     tipo = models.CharField(
         default='V',
         max_length=1,
         choices=(
             ('V', 'Variável',),
-            ('S', 'Simples',)))
+            ('S', 'Simples',)), verbose_name='Tipo')
 
     @staticmethod
     def resize_image(img, new_width=800):

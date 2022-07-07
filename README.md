@@ -8,7 +8,7 @@ e nele você ira encontrar o seguinte:
     -Laços de repetição (for, while, break, continue);
     -Condições(if, elif, else, case);
     -Bases de dados relacionais(SQLite3, MySQL e MariaDB);
-    -Django para criação de sites e APIs;
+    -Django para criação de sites (html, css, javascript, python);
     -Testes no Python (com TDD básico);
     -Padrões de projeto (Design Patterns da GoF);
     -Programação procedural e funcional;
@@ -25,10 +25,3 @@ e nele você ira encontrar o seguinte:
 
         Eu sou fascinado por esse assunto e tenho em mente me tornar ainda melhor naquilo que gosto buscando 
     sempre evoluir.
-
-
-
-
-
-
-

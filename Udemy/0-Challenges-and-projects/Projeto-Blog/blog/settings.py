@@ -41,10 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sslserver',
     'django.contrib.humanize',
     'crispy_forms',
     'axes',
+    "sslserver",
 ]
 
 MIDDLEWARE = [
@@ -142,12 +142,12 @@ MESSAGE_TAGS = {
 INSTALLED_APPS += ('django_summernote', )
 
 
-SECURE_CONTENT_TYPE_NOSNIFF = None
-SECURE_BROWSER_XSS_FILTER = None
-SESSION_COOKIE_SECURE = None
-CSRF_COOKIE_SECURE = None
-SECURE_SSL_REDIRECT = None
-SECURE_PROXY_SSL_HEADER = None
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+SECURE_PROXY_SSL_HEADER = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
