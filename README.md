@@ -7,6 +7,7 @@ e nele você ira encontrar o seguinte:
     -Programação orientada a objetos(classes, objetos, métodos);
     -Laços de repetição (for, while, break, continue);
     -Condições(if, elif, else, case);
+    -Bases de dados relacionais(SQLite3, MySQL e MariaDB);
     -Django para criação de sites e APIs;
     -Testes no Python (com TDD básico);
     -Padrões de projeto (Design Patterns da GoF);
