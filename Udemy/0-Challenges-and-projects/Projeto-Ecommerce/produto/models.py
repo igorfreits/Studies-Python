@@ -1,4 +1,5 @@
 from pickletools import optimize
+from tabnanny import verbose
 from django.conf import settings
 import os
 from PIL import Image
@@ -61,3 +62,7 @@ class Variacao(models.Model):
 
     def __str__(self):
         return self.nome or self.produto.nome
+
+    class Meta:
+        verbose_name = 'Variação'
+        verbose_name_plural = 'Variações'
