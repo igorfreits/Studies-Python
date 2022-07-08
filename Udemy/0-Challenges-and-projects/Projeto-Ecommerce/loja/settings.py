@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'perfil',
     'produto',
     'pedido',
     'django.contrib.admin',

@@ -1,5 +1,6 @@
 import re
 
+
 def valida_cpf(cpf):
     cpf = str(cpf)
     cpf = re.sub(r'[^0-9]', '', cpf)
@@ -7,7 +8,8 @@ def valida_cpf(cpf):
     if not cpf or len(cpf) != 11:
         return False
 
-    novo_cpf = cpf[:-2]                 # Elimina os dois últimos digitos do CPF
+    # Elimina os dois últimos digitos do CPF
+    novo_cpf = cpf[:-2]
     reverso = 10                        # Contador reverso
     total = 0
 
