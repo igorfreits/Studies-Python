@@ -3,6 +3,7 @@ import os
 from PIL import Image
 from django.db import models
 from django.utils.text import slugify
+from utils import utils
 
 
 # Create your models here.
@@ -28,11 +29,11 @@ class Produto(models.Model):
             ('S', 'Simples',)), verbose_name='Tipo')
 
     def get_preco_formatado(self):
-        return f'R$ {self.preco_marketing:.2f}'.replace('.', ',')
+        return utils.formata_preco(self.preco_marketing)
     get_preco_formatado.short_description = 'Preço'
 
     def get_preco_promocional_formatado(self):
-        return f'R$ {self.preco_marketing_promocional:.2f}'.replace('.', ',')
+        return utils.formata_preco(self.preco_marketing_promocional)
     get_preco_promocional_formatado.short_description = 'Preço Promocional'
 
     @staticmethod
