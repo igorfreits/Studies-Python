@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from . import models
 from . import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 import copy
+from django.contrib import messages
 
 # Create your views here.
 
@@ -28,7 +30,8 @@ class BasePerfil(View):
                                            instance=self.request.user
 
                                            ),
-                'perfilform': forms.PerfilForm(data=self.request.POST or None),
+                'perfilform': forms.PerfilForm(data=self.request.POST or None,
+                                               instance=self.perfil),
             }
         else:
             self.contexto = {
@@ -40,6 +43,10 @@ class BasePerfil(View):
             }
         self.userform = self.contexto['userform']
         self.perfilform = self.contexto['perfilform']
+
+        if self.request.user.is_authenticated:
+            self.template_name = 'perfil/update.html'
+
         self.renderizar = render(
             self.request, self.template_name, self.contexto)
 
@@ -49,8 +56,7 @@ class BasePerfil(View):
 
 class Criar(BasePerfil):
     def post(self, *args, **kwargs):
-        # if not self.userform.is_valid() or not self.perfilform.is_valid():
-        if not self.userform.is_valid():
+        if not self.userform.is_valid() or not self.perfilform.is_valid():
             return self.renderizar
 
         username = self.userform.cleaned_data.get('username')
@@ -61,10 +67,12 @@ class Criar(BasePerfil):
 
         # Usuário logado
         if self.request.user.is_authenticated:
-            usuario = User.objects.get(username=username)
-            usuario.username = get_object_or_404(
+            messages.success(self.request, 'Dados atualizados com sucesso!')
+
+            usuario = get_object_or_404(
                 User, username=self.request.user.username)
 
+            usuario.username = username
             if password:
                 usuario.set_password(password)
 
@@ -73,8 +81,18 @@ class Criar(BasePerfil):
             usuario.last_name = last_name
             usuario.save()
 
+            if not self.perfil:
+                self.perfilform.cleaned_data['usuario'] = usuario
+                perfil = models.Perfil(**self.perfilform.cleaned_data)
+                perfil.save()
+            else:
+                perfil = self.perfilform.save(commit=False)
+                perfil.usuario = usuario
+                perfil.save()
+
         # Usuário não logado(novo)
         else:
+            messages.success(self.request, 'Usuário criado com sucesso!')
             usuario = self.userform.save(commit=False)
             usuario.set_password(password)
             usuario.save()
@@ -82,6 +100,13 @@ class Criar(BasePerfil):
             perfil = self.perfilform.save(commit=False)
             perfil.usuario = usuario
             perfil.save()
+
+        if password:
+            autentica = authenticate(self.request,
+                                     username=usuario, password=password)
+            if autentica:
+                login(self.request, user=usuario)
+
         self.request.session['cart'] = self.cart
         self.request.session.save()
 
