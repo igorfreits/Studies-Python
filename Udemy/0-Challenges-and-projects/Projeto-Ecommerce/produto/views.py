@@ -6,8 +6,6 @@ from django.http import HttpResponse
 from django.contrib import messages
 from . import models
 
-from pprint import pprint
-
 # Create your views here.
 
 
@@ -109,9 +107,7 @@ class AddToCart(View):
                 'slug': slug,
                 'imagem': imagem,
             }
-        pprint(carrinho)
         self.request.session.save()
-        pprint(carrinho)
 
         messages.success(
             self.request,
