@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.list import ListView
 from django.views import View
 from django.http import HttpResponse
 from . import models
 from . import forms
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import copy
 from django.contrib import messages
 
@@ -109,8 +109,7 @@ class Criar(BasePerfil):
 
         self.request.session['cart'] = self.cart
         self.request.session.save()
-
-        return self.renderizar
+        return redirect('perfil:criar')
 
 
 class Update(View):
@@ -119,11 +118,30 @@ class Update(View):
 
 
 class Login(View):
-    def get(self, *args, **kwargs):
+    def post(self, *args, **kwargs):
+        username = self.request.POST.get('username')
+        password = self.request.POST.get('password')
 
-        return HttpResponse("Login")
+        if not username and password:
+            messages.error(self.request, 'Usuário ou senha inválidos')
+            return redirect('perfil:criar')
+        usuario = authenticate(
+            self.request, username=username, password=password)
+
+        if not usuario:
+            messages.error(self.request, 'Usuário ou senha inválidos')
+            return redirect('perfil:criar')
+
+        login(self.request, user=usuario)
+        messages.success(self.request, 'Usuário logado com sucesso')
+        return redirect('produto:cart')
 
 
 class Logout(ListView):
     def get(self, *args, **kwargs):
-        return HttpResponse("Logout")
+        cart = copy.deepcopy(self.request.session.get('cart', {}))
+        logout(self.request)
+        self.request.session['cart'] = cart
+        self.request.session.save()
+        messages.success(self.request, 'Você saiu com sucesso!')
+        return redirect('produto:lista')
