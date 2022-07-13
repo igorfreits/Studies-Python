@@ -1,8 +1,4 @@
-"""Asserções (Assertions)
-
--https://docs.python.org/pt-br/3/library/doctest.html
--https://docs.python.org/pt-br/3/library/unittest.html
-"""
+"""Asserções (Assertions)"""
 # Usar para outros desenvolvedores
 # afirma que a função soma recebe dois parâmetros inteiros ou float
 

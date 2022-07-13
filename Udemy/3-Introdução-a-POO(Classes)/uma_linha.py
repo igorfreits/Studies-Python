@@ -1,5 +1,5 @@
 # Aula 73
-"""One line documentation"""  #Documentação de uma linha
+"""One line documentation"""  # Documentação de uma linha
 
 variable = 'Value'
 

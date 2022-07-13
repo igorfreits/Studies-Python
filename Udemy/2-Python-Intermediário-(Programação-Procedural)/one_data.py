@@ -5,7 +5,7 @@ from math import pi
 import two_data
 
 """
-Aula 41, 42,43
+Aula 41, 42, 43
 """
 
 produtos = [
