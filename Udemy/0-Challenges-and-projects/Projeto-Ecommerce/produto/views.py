@@ -5,6 +5,8 @@ from django.views import View
 from django.http import HttpResponse
 from django.contrib import messages
 from . import models
+from django.db.models import Q
+from perfil.models import Perfil
 
 # Create your views here.
 
@@ -14,6 +16,25 @@ class ListaProdutos(ListView):
     template_name = 'produto/lista.html'
     context_object_name = 'produtos'
     paginate_by = 3
+    ordering = ['-id']
+
+
+class Busca(ListaProdutos):
+    def get_queryset(self, *args, **kwargs):
+        termo = self.request.GET.get('termo') or self.request.session['termo']
+        qs = super().get_queryset(*args, **kwargs)
+        if not termo:
+            return qs
+
+        self.request.session['termo'] = termo
+
+        qs = qs.filter(
+            Q(nome__icontains=termo) |
+            Q(descricao_curta__icontains=termo) |
+            Q(descricao_longa__icontains=termo)
+        )
+        self.request.session.save()
+        return qs
 
 
 class DetalheProduto(DetailView):
@@ -26,7 +47,7 @@ class DetalheProduto(DetailView):
 class AddToCart(View):
     def get(self, *args, **kwargs):
 
-        # Remover o produto do carrinho
+        # Remove o produto do carrinho
         # if self.request.session.get('cart'):
         #     del self.request.session['cart']
         #     self.request.session.save()
@@ -153,4 +174,28 @@ class Cart(View):
 
 class ResumoDaCompra(View):
     def get(self, *args, **kwargs):
-        return HttpResponse("Finalizar")
+        if not self.request.user.is_authenticated:
+            messages.error(
+                self.request, 'Você precisa fazer login para continuar')
+            return redirect('perfil:criar')
+        if not self.request.session.get('cart'):
+            messages.error(
+                self.request, 'Seu carrinho está vazio')
+            return redirect('produto:lista')
+
+        perfil = Perfil.objects.filter(usuario=self.request.user).exists()
+        if not perfil:
+            messages.error(
+                self.request,
+                'Você precisa terminar seu cadastro para continuar')
+            return redirect('perfil:criar')
+
+        if not self.request.session.get('cart'):
+            messages.error(self.request, 'Seu carrinho está vazio')
+            return redirect('produto:lista')
+
+        contexto = {
+            'usuario': self.request.user,
+            'cart': self.request.session['cart'],
+        }
+        return render(self.request, 'produto/resumo.html', contexto)

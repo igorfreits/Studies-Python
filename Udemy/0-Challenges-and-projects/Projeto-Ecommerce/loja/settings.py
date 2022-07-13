@@ -42,9 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+    # 'debug_toolbar',
     "sslserver",
-
     'crispy_forms'
 
 ]
@@ -58,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
 
 ]
 
@@ -167,11 +166,12 @@ CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = False
 
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
+# DEBUG TOOLBAR
+# INTERNAL_IPS = [
+#     # ...
+#     "127.0.0.1",
+#     # ...
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
