@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.list import ListView
 from django.views import View
@@ -57,6 +58,9 @@ class BasePerfil(View):
 class Criar(BasePerfil):
     def post(self, *args, **kwargs):
         if not self.userform.is_valid() or not self.perfilform.is_valid():
+            messages.error(
+                self.request, 'Existem erros no seu cadastro, '
+                'verifique se os seus dados estão corretos')
             return self.renderizar
 
         username = self.userform.cleaned_data.get('username')
@@ -109,7 +113,7 @@ class Criar(BasePerfil):
 
         self.request.session['cart'] = self.cart
         self.request.session.save()
-        return redirect('perfil:criar')
+        return redirect('produto:cart')
 
 
 class Update(View):

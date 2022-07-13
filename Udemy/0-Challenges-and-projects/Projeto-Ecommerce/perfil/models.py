@@ -9,7 +9,7 @@ from utils.validacpf import valida_cpf
 class Perfil(models.Model):
     usuario = models.OneToOneField(
         User, on_delete=models.CASCADE, verbose_name='Usuario')
-    email = models.EmailField(verbose_name='Email')
+    email = models.EmailField(verbose_name='Confirme seu E-Mail')
     telefone = models.CharField(max_length=20, verbose_name='Telefone')
     data_nascimento = models.DateField(verbose_name='Data de Nascimento')
     cpf = models.CharField(max_length=11, verbose_name='CPF')
@@ -61,6 +61,15 @@ class Perfil(models.Model):
 
     def clean(self):
         error_messages = {}
+
+        cpf_enviado = self.cpf or None
+        cpf_salvo = None
+        perfil = Perfil.objects.filter(cpf=cpf_enviado).first()
+
+        if perfil:
+            cpf_salvo = perfil.cpf
+            if cpf_salvo is not None and self.pk != perfil.pk:
+                error_messages['cpf'] = 'CPF já cadastrado'
 
         if self.idade < 18:
             error_messages['idade'] = 'Você precisa ser maior de 18 anos para se cadastrar.'

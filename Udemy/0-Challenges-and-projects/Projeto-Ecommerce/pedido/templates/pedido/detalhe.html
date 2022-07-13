@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block titulo %}N°.{{ pedido.id }} | {% endblock %}
+{% load iffilters %}
+{% load static %}
+
+{% block conteudo %}
+
+{% include 'parciais/_pedido.html' %}
+   
+{% endblock conteudo %}
