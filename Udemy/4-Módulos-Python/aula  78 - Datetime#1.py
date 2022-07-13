@@ -33,7 +33,7 @@ d1 = datetime.strptime('20/04/2015 20:00:00', '%d/%m/%Y %H:%M:%S')
 d2 = datetime.strptime('25/04/2015 22:33:00', '%d/%m/%Y %H:%M:%S')
 
 diference = d2 - d1  # Diferença de tempo
-print(d1>d2)
+print(d1 > d2)
 print(diference)
 print(diference.seconds)  # Mostra em segundos(da Hora)
 print(diference.total_seconds())  # Segundos totais
