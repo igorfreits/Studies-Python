@@ -1,0 +1,14 @@
+"""TDD - Test Driven Development(Desenvolvimento dirigido a testes)
+
+red - Fazer errado
+green - Fazer certo
+refactor - Fazer melhor
+
+1- Fazer o teste e ver falhar
+2- Fazer o teste e ver passar
+3- Refatorar o código(Melhorar o código)
+
+
+-Executa todos os testes locais e os testes de integração
+    python -m unittest -v(terminal)
+"""

@@ -2,7 +2,7 @@
 Filter()
 """
 # Filtra coisas
-from dados import pessoas, produtos, lista
+from one_data import pessoas, produtos, lista
 """
 filter(function, iterable)
 Constrói um iterador a partir dos elementos de iterable para

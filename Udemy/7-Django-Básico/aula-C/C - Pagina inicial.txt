@@ -1,5 +1,4 @@
-"""Criando Página inicial no Django
-
+Criando Página inicial no Django
 
 -Criar  um app home
 ou
@@ -8,5 +7,3 @@ ou
         Configurar
     -Criar pasta home e html dentro de pages configurando o html
     -adicionar em urls
-
-"""

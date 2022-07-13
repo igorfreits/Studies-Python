@@ -1,4 +1,4 @@
-"""Django: Olá mundo!
+Django: Olá mundo!
 
 -https://docs.djangoproject.com/pt-br/4.0/
 
@@ -6,7 +6,6 @@
 -Crianção de website (back-end)
 -Putty - Liga servidor
 -FileZilla - Move arquivos do projeto pro servidor
-
 
 
 -Iniciar um novo projeto com todos os arquivos necessários
@@ -44,5 +43,4 @@
     pip install django-sslserver
     INSTALLED_APPS = (...
     "sslserver",...)
-
-"""
+    python manage.py runsslserver(TERMINAL)

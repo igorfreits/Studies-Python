@@ -12,6 +12,7 @@ def sum(x, y):
     """
     return x+y
 
+
 def multiplies(x, y, z=None):
     """multiplies x,y,z
     Devops pode omitir a variável z cao nao tenha necessidade de usar

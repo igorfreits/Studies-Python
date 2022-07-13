@@ -4,8 +4,8 @@ map
 # Mapeamento
 # A função Map pega uma lista e a transforma numa nova lista,
 # executando algum tipo de operação em cada elemento
-# Importa dados de um outro arquivo .py
-from dados import produtos, pessoas, lista
+# Importa dados de um outro arquivo.py
+from one_data import produtos, pessoas, lista
 
 """
 map(function, iterable, ...)

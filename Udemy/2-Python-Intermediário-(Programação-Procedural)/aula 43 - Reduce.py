@@ -4,7 +4,7 @@ Reduce
 # Precisa importar biblioteca
 # Acumuladora de valores
 
-from dados import pessoas, produtos, lista
+from one_data import pessoas, produtos, lista
 from functools import reduce
 
 # Acumulador com for
