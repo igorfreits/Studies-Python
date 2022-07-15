@@ -51,9 +51,9 @@ for key, value in dictionary.items():
     print(value)
 
 # ERROR
-# with open('clientes_json', 'r') as file:  # cria um arquivo de escrita json
+# with open('clients_json', 'r') as file:  # cria um arquivo de escrita json
 #     json.dump(clients_dictionary, file, indent=4)
 
-# with open('clientes_json', 'r') as file:  # convert o arquivo json criado
+# with open('clients_json', 'r') as file:  # convert o arquivo json criado
 #     dados = json.load(file)
 # print(dados)

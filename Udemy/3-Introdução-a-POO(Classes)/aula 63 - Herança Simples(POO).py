@@ -65,11 +65,11 @@ p1.speak()
 """
 Animal #classe pai-> Respirar
     wolf(animal)#classe filho -> Respirar/uivar
-    dog(animal)#classe filho -> Respirar/uivar/latir
+        dog(wolf)#classe filho -> Respirar/uivar/latir
 
 # O que as classes filhas fazem nao afeta a classe pai
 # dog herda de wolf(de cima pra baixo)
-# Se classe pai respira os demais também terão
+# Se classe pai respira os demais também respiram
 """
 
 
