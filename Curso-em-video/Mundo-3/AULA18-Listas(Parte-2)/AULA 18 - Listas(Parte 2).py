@@ -32,7 +32,7 @@ for c in range(0, 3):
     dados.append(str(input('Nome: ')))
     dados.append(int(input('Idade: ')))
     galera3.append(dados[:])
-    dados.clear()
+    dados.clear()  # Limpando a lista para não criar varios dados
 print(galera3)
 
 total_maior = total_menor = 0
