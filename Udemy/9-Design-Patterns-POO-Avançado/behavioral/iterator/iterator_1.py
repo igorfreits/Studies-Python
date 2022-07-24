@@ -19,47 +19,35 @@ from collections.abc import Iterator, Iterable
 from typing import List, Any
 
 
-class MyIterator(Iterator):
-    def __init__(self, collection: List[Any]) -> None:
-        self._collection = collection
+class MyIterator(Iterator):  # Concrete Iterator
+    def __init__(self, collections: List[Any]) -> None:
+        self.collections = collections
         self._index = 0
-
-    def next(self):
-        try:
-            return self.__next__()
-        except StopIteration:
-            return None
 
     def __next__(self):
         try:
-            item = self._collection[self._index]
+            item = self.collections[self._index]
             self._index += 1
             return item
         except IndexError:
             raise StopIteration
 
 
-class ReverseIterator(Iterator):
-    def __init__(self, collection: List[Any]) -> None:
-        self._collection = collection
+class ReverseIterator(Iterator):  # Concrete Iterator
+    def __init__(self, collections: List[Any]) -> None:
+        self.collections = collections
         self._index = -1
-
-    def next(self):
-        try:
-            return self.__next__()
-        except StopIteration:
-            return None
 
     def __next__(self):
         try:
-            item = self._collection[self._index]
+            item = self.collections[self._index]
             self._index -= 1
             return item
         except IndexError:
             raise StopIteration
 
 
-class MyList(Iterable):
+class MyList(Iterable):  # Concrete Aggregate
     def __init__(self) -> None:
         self._items: List[Any] = []
         self._my_iterator = MyIterator(self._items)
@@ -77,13 +65,14 @@ class MyList(Iterable):
         return f'{self.__class__.__name__}({self._items})'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     mylist = MyList()
-    mylist.add('Luiz')
-    mylist.add('Maria')
-    mylist.add('João')
-
+    mylist.add('Igor')
+    mylist.add('Michele')
+    mylist.add('Alice')
     # print(mylist)
+
+    print('I stole a value: ', next(iter(mylist)))
 
     for value in mylist:
         print(value)
