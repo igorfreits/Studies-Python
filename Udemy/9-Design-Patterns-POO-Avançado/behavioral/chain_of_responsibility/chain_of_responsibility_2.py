@@ -11,73 +11,52 @@ from abc import ABC, abstractmethod
 
 
 class Handler(ABC):
-    def __init__(self) -> None:
-        self.sucessor: Handler
+    3
+
+    def __init__(self):
+        self.sucessor = Handler
 
     @abstractmethod
-    def handle(self, letter: str) -> str: pass
+    def handler(self, letter: str) -> str: pass
 
 
 class HandlerABC(Handler):
     def __init__(self, sucessor: Handler) -> None:
-        self.letters = ['A', 'B', 'C']
+        self.letters = ['A', 'B', 'C', ]
         self.sucessor = sucessor
 
-    def handle(self, letter: str) -> str:
+    def handler(self, letter: str) -> str:
         if letter in self.letters:
-            return f'HandlerABC: conseguiu tratar o valor {letter}'
-        return self.sucessor.handle(letter)
+            return f'"{letter}" is a letter of the HandlerABC'
+        return self.sucessor.handler(letter)
 
 
 class HandlerDEF(Handler):
     def __init__(self, sucessor: Handler) -> None:
-        self.letters = ['D', 'E', 'F']
+        self.letters = ['D', 'E', 'F', ]
         self.sucessor = sucessor
 
-    def handle(self, letter: str) -> str:
+    def handler(self, letter: str) -> str:
         if letter in self.letters:
-            return f'HandlerDEF: conseguiu tratar o valor {letter}'
-        return self.sucessor.handle(letter)
+            return f'"{letter}" is a letter of the HandlerDEF'
+        return self.sucessor.handler(letter)
 
 
 class HandlerUnsolved(Handler):
-    def handle(self, letter: str) -> str:
-        return f'HandlerUnsolved: não tratou {letter}'
+    def handler(self, letter: str) -> str:
+        return f'HandlerUnsolved: "{letter}" is not a letter of the ABC or DEF'
 
 
-if __name__ == "__main__":
-    handler_unsolved = HandlerUnsolved()
-    handler_def = HandlerDEF(handler_unsolved)
+if __name__ == '__main__':
+    handler_unosolved = HandlerUnsolved()
+    handler_def = HandlerDEF(handler_unosolved)
     handler_abc = HandlerABC(handler_def)
 
-    print(handler_abc.handle('A'))
-    print(handler_abc.handle('B'))
-    print(handler_abc.handle('C'))
-    print(handler_abc.handle('D'))
-    print(handler_abc.handle('E'))
-    print(handler_abc.handle('F'))
-    print(handler_abc.handle('G'))
-    print(handler_abc.handle('H'))
-    print(handler_abc.handle('I'))
+    print(handler_abc.handler('A'))
+    print(handler_abc.handler('B'))
 
-    print()
-    print(handler_def.handle('A'))
-    print(handler_def.handle('B'))
-    print(handler_def.handle('C'))
-    print(handler_def.handle('D'))
-    print(handler_def.handle('E'))
-    print(handler_def.handle('F'))
-    print(handler_def.handle('G'))
-    print(handler_def.handle('H'))
-    print(handler_def.handle('I'))
+    print(handler_abc.handler('D'))
+    print(handler_def.handler('C'))
 
-    print()
-    print(handler_unsolved.handle('A'))
-    print(handler_unsolved.handle('B'))
-    print(handler_unsolved.handle('C'))
-    print(handler_unsolved.handle('D'))
-    print(handler_unsolved.handle('E'))
-    print(handler_unsolved.handle('F'))
-    print(handler_unsolved.handle('G'))
-    print(handler_unsolved.handle('H'))
-    print(handler_unsolved.handle('I'))
+    print(handler_abc.handler('G'))
+    print(handler_def.handler('H'))

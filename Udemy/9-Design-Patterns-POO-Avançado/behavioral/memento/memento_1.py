@@ -10,8 +10,8 @@ Caretaker é usado para armazenar mementos.
 Caretaker também é usado com o Padrão Command.
 """
 from __future__ import annotations
-from typing import Dict, List
 from copy import deepcopy
+from typing import List, Dict
 
 
 class Memento:
@@ -22,7 +22,7 @@ class Memento:
     def get_state(self) -> Dict:
         return self._state
 
-    def __setattr__(self, name, value):
+    def __setattr__(self, name, value) -> None:
         raise AttributeError('Sorry, I am immutable')
 
 
@@ -39,10 +39,10 @@ class ImageEditor:
         self.__dict__ = memento.get_state()
 
     def __str__(self):
-        return f'{self.__class__.__name__}({self.__dict__})'
+        return f'{self.__class__.__name__} ({self.__dict__})'
 
 
-class Caretaker:
+class Caretaker:  # Comando sem interface
     def __init__(self, originator: ImageEditor):
         self._originator = originator
         self._mementos: List[Memento] = []
@@ -53,29 +53,26 @@ class Caretaker:
     def restore(self) -> None:
         if not self._mementos:
             return
-
         self._originator.restore(self._mementos.pop())
 
 
-if __name__ == "__main__":
-    img = ImageEditor('FOTO_1.jpg', 111, 111)
+if __name__ == '__main__':
+    img = ImageEditor('image.jpg', 100, 100)
     caretaker = Caretaker(img)
+
     caretaker.backup()
 
-    img.name = 'FOTO_2.jpg'
+    img.name = 'Foto_2'
     img.width = 222
     img.height = 222
     caretaker.backup()
 
-    img.name = 'FOTO_3.jpg'
+    img.name = 'Foto_3'
     img.width = 333
     img.height = 333
-    caretaker.backup()
 
-    img.name = 'FOTO_4.jpg'
-    img.width = 444
-    img.height = 444
-
+    caretaker.restore()
+    caretaker.restore()
     caretaker.restore()
 
     print(img)

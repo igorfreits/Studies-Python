@@ -13,14 +13,14 @@ from typing import List
 
 
 class Colleague(ABC):
-    def __init__(self):
+    def __init__(self) -> None:
         self.name: str
 
     @abstractmethod
-    def broadcast(self, msg: str) -> None: pass
+    def broadcast(self, message: str) -> None: pass
 
     @abstractmethod
-    def direct(self, msg: str) -> None: pass
+    def direct(self, message: str) -> None: pass
 
 
 class Person(Colleague):
@@ -28,25 +28,26 @@ class Person(Colleague):
         self.name = name
         self.mediator = mediator
 
-    def broadcast(self, msg: str) -> None:
-        self.mediator.broadcast(self, msg)
+    def broadcast(self, message: str) -> None:
+        self.mediator.broadcast(self, message)
 
-    def send_direct(self, receiver: str, msg: str) -> None:
-        self.mediator.direct(self, receiver, msg)
+    def send_direct(self, receiver: str, message: str) -> None:
+        self.mediator.direct(self, receiver, message)
 
-    def direct(self, msg: str) -> None:
-        print(msg)
+    def direct(self, message: str) -> None:
+        print(message)
 
 
 class Mediator(ABC):
     @abstractmethod
-    def broadcast(self, colleague: Colleague, msg: str) -> None: pass
+    def broadcast(self, colleague: Colleague, message: str) -> None: pass
 
     @abstractmethod
-    def direct(self, sender: Colleague, receiver: str, msg: str) -> None: pass
+    def direct(self, sender: Colleague, receiver: str,
+               message: str) -> None: pass
 
 
-class Chatroom(Mediator):
+class Chatroom(Mediator):  # Concrete Mediator
     def __init__(self) -> None:
         self.colleagues: List[Colleague] = []
 
@@ -61,21 +62,10 @@ class Chatroom(Mediator):
         if self.is_colleague(colleague):
             self.colleagues.remove(colleague)
 
-    def broadcast(self, colleague: Colleague, msg: str) -> None:
+    def broadcast(self, colleague: Colleague, message: str) -> None:
         if not self.is_colleague(colleague):
             return
-
-        # Aqui você pode mandar um broadcast para todos os colleagues.
-        # Basta fazer um for em self.colleagues e um método em
-        # ConcreteColleague (Person) para receber este broadcast
-        # Por fim, você enviaria os dados para cada um dos colleagues.
-        #
-        # Por exemplo:
-        # for colleague in self.colleagues:
-        #   colleague.receive(f'{colleague.name} disse: {msg}')
-        #
-        # Obs.: O método receive deve ser criado em Person.
-        print(f'{colleague.name} disse: {msg}')
+        print(f'{colleague.name} said: {message}')
 
     def direct(self, sender: Colleague, receiver: str, msg: str) -> None:
         if not self.is_colleague(sender):
@@ -90,27 +80,27 @@ class Chatroom(Mediator):
             return
 
         receiver_obj[0].direct(
-            f'{sender.name} para {receiver_obj[0].name}: {msg}'
+            f'{sender.name} for {receiver_obj[0].name}: {msg}'
         )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     chat = Chatroom()
 
-    joao = Person('João', chat)
-    maria = Person('Maria', chat)
-    elis = Person('Elis', chat)
-    jose = Person('José', chat)
+    john = Person('John', chat)
+    igor = Person('Igor', chat)
+    michele = Person('Michele', chat)
+    alice = Person('Alice', chat)
 
-    chat.add(joao)
-    chat.add(maria)
-    chat.add(elis)
-    chat.add(jose)
+    chat.add(john)
+    chat.add(igor)
+    chat.add(michele)
 
-    joao.broadcast('Olá pessoas')
-    maria.broadcast('Fala, beleza?')
-    jose.broadcast('Eu não fui adicionado ao chat...')
+    john.broadcast('Hello everyone!')
+    igor.broadcast('Hello my friend!')
+    alice.broadcast('I was not added to the chat...')
 
     print()
-    joao.send_direct('Maria', 'Oi Maria, tudo bem?')
-    maria.send_direct('João', 'Bem e você?')
+
+    igor.send_direct('Michele', 'Hello Michele!')
+    michele.send_direct('Igor', 'Hello Igor!')
