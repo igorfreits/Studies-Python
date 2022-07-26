@@ -36,7 +36,7 @@ from abc import ABC, abstractmethod
 from typing import List, Dict
 
 
-class Client:
+class Client:  # Context
     def __init__(self, name: str) -> None:
         self.name = name
         self._addresses: List = []
