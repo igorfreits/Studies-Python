@@ -14,9 +14,12 @@ ou substituí-la por outra função ou objeto invocável.
 Do livro "Python Fluente", por Luciano Ramalho (pág. 223)
 """
 from __future__ import annotations
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List
 from copy import deepcopy
+
+# Ingredientes
 
 
 # INGREDIENTS
