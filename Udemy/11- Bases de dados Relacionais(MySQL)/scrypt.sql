@@ -1,12 +1,10 @@
 -- Active: 1659878189229@@127.0.0.1@3306@base_de_dados
-#Seleciona a base de dados
-use base_de_dados;
 
-#Mostra as tabelas da bs
-show tables;
+#Seleciona a base de dados use base_de_dados;
 
-#Descreve as colunas da tabela
-describe users;
+#Mostra as tabelas da bs show tables;
+
+#Descreve as colunas da tabela describe users;
 
 #Insere registros na bs
 insert into
@@ -680,12 +678,57 @@ where
 #like - parecido
 # qualquer coisa - %
 # um caractere - _
-select * from users u 
+select *
+from users u
 where first_name like '%a';
 
-select * from users u 
-where first_name like 'h%';
+select * from users u where first_name like 'h%';
 
-select * from users u 
-where first_name like '_____';
+select * from users u where first_name like '_____';
+
+#ORDER BY - Ordena valores
+# order by id asc (id crescente)
+#order by id desc (id decrescente)
+#order by id asc, first_name desc (prioriza o id)
+SELECT id, first_name, email
+FROM users
+WHERE id BETWEEN 50 AND 100
+ORDER by id asc;
+
+# limit - Limita a quantidade de valores
+#offset - deslosca o cursor para exibir os resultados
+SELECT id, first_name, email
+FROM users
+WHERE id BETWEEN 50 AND 100
+ORDER by id asc
+LIMIT 3 offset 3;
+
+# insert select - insere  valortes em uma tabela usando outra
+insert into profiles
+(bio, description,user_id)
+select
+concat('BIO de ',first_name),
+concat('Description de ',' ',first_name),
+id from users;
+
+#delete - apaga registros(USAR COM CUIDADO!)
+# Use select para garantir que esta apaagndo os valores corretos
+delete from users where id = 51;
+select * from users where id between 50 and 55;
+
+# update - Atualiza registros
+update users set
+first_name = 'Francimar',
+last_name = 'Xavier';
+where id = 56;
+
+select * from users where id=56;
+
+
+
+
+
+
+
+
 
