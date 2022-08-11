@@ -1,10 +1,11 @@
--- Active: 1659878189229@@127.0.0.1@3306@base_de_dados
+#Seleciona a base de dados
+use base_de_dados;
 
-#Seleciona a base de dados use base_de_dados;
+#Mostra as tabelas da bs
+show tables;
 
-#Mostra as tabelas da bs show tables;
-
-#Descreve as colunas da tabela describe users;
+#Descreve as colunas da tabela
+describe users;
 
 #Insere registros na bs
 insert into
@@ -724,8 +725,74 @@ where id = 56;
 
 select * from users where id=56;
 
+#SELECT de mais de uma tabela
+select u.id as uid, p.id as pid,
+p.bio, u.first_name
+from users as u, profiles as p
+where u.id = p.user_id;
 
+-- Seleciona users.id, profiles.id, profiles.bio
+-- profiles.description, users.first_name
+-- da tabela users
+-- unindo com a tabela profiles
+-- quando a condição u.id = p.user_id for satisfeita
+-- onde users.first_name terminar com "a"
+-- ordena por users.first_name decrescente
+-- limita 5 registros
+select u.id as uid, p.id as pid,
+p.bio, u.first_name
+from users as u
+inner join profiles p 
+on u.id = p.user_id ;
 
+select u.id as uid, p.id as pid,
+p.bio, u.first_name
+from users as u
+LEFT join profiles p 
+on u.id = p.user_id ;
+
+select u.id as uid, p.id as pid,
+p.bio, u.first_name
+from users as u
+right join profiles p 
+on u.id = p.user_id ;
+
+#gera numero aleatorio
+update users set salary = round(rand() * 10000, 2);
+select salary from users where 
+salary between 1000 and 1500;
+
+#Inserindo as roles no users
+insert into roles (name)
+values
+('POST'),('PUT'),('DELETE'),('GET');
+
+insert into user_roles (user_id,role_id)
+values
+(220,4);
+
+select id,
+(select id from roles order by rand()limit 1) as valor
+from users u ;
+
+insert into user_roles (user_id,role_id)
+select id,
+(select id from roles order by rand()limit 1) as valor
+from users u ;
+
+#insert ignore
+insert ignore into user_roles (user_id,role_id)
+select id,
+(select id from roles order by rand()limit 1) as valor
+from users order by rand() limit 5 ;
+
+# select com varios join
+select u.id as uid, u.first_name,p.bio,r.name as role_name
+from users u
+left join profiles p on u.id = p.user_id
+inner join user_roles ur on u.id =ur.user_id
+inner join roles r on ur.role_id = r.id
+order by uid asc;
 
 
 
