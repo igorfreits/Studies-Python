@@ -704,7 +704,7 @@ WHERE id BETWEEN 50 AND 100
 ORDER by id asc
 LIMIT 3 offset 3;
 
-# insert select - insere  valortes em uma tabela usando outra
+# insert select - insere  valores em uma tabela usando outra
 insert into profiles
 (bio, description,user_id)
 select
@@ -794,8 +794,51 @@ inner join user_roles ur on u.id =ur.user_id
 inner join roles r on ur.role_id = r.id
 order by uid asc;
 
+#update com join
+select u.first_name,p.bio from users u 
+-- update users u
+join profiles p 
+on p.user_id = u.id
+-- set p.bio = concat(p.bio,' atualizado') 
+where u.first_name = 'Benjamin';
 
+#delete com join
+select u.first_name,p.bio from users u 
+join profiles p 
+on p.user_id = u.id
+where u.first_name = 'Benjamin';
 
+delete p from users u 
+left join profiles p 
+on p.user_id = u.id
+where u.first_name = 'Benjamin';
+
+# group by
+select first_name,count(id) as total  from users u 
+group by first_name
+order by total desc;
+
+select u.first_name, COUNT(u.id) as total from users u
+left join profiles as p
+on p.user_id = u.id
+WHERE u.id IN (225,288,296)
+GROUP BY first_name
+ORDER BY total DESC
+LIMIT 5;
+
+#agregação
+select 
+u.first_name,
+max(u.salary) as max_salary,
+min(u.salary) as min_salary,
+avg(u.salary) as avg_salary,
+sum(u.salary) as sum_salary,
+COUNT(u.id) as total
+from users u
+left join profiles as p
+on p.user_id = u.id
+GROUP BY u.first_name
+ORDER BY total DESC;
 
 
 
