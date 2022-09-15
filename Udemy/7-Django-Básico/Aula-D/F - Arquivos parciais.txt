@@ -1,0 +1,15 @@
+Carregar parciais
+
+-Criar pasta parciais com html
+
+_nav.html
+_footer.html
+
+
+-No arquivo base
+
+{% include 'parciais/_nav.html' %}
+{% include 'parciais/_footer.html' %}
+
+
+
