@@ -1,0 +1,11 @@
+-Carregar Statics no DJANGO
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'templates/static')
+]
+'DIRS': [os.path.join(BASE_DIR, 'templates')]
+
+STATIC_URL = '/static/'
+
+-Carregar no arquivo html
+{% load static %}

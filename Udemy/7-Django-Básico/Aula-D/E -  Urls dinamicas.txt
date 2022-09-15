@@ -1,0 +1,11 @@
+Carregar urls dinamicamente
+
+urlpatterns = [
+    path('', views.home, name='page_1'),
+    path('about/', views.about, name='page_2')
+]
+
+-Usar no HTML
+{% url 'page_1' %}
+
+{% url 'page_2' %}
