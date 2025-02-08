@@ -1,0 +1,15 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Funções
+---
+
+```{r}
+getwd() # diretório de trabalho
+
+#sem parenteses
+sd
+head(n=2, x=iris ) # retorna as primeiras 2 linhas do data frame iris
+head(iris) # retorna as primeiras 6 linhas do data frame iris
+head(iris,2) # retorna as primeiras 2 linhas do data frame iris
+head(n=22) # retorna mensagem de erro, pois não foi passado o data frame x
+```

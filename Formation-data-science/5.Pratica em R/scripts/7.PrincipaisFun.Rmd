@@ -1,0 +1,43 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Principais Funções
+---
+Head e Tail
+```{r}
+esoph
+#default 6 linhas
+head(esoph) # 6 primeiras linhas
+tail(esoph) # 6 últimas linhas
+#10 linhas
+head(esoph, n=10) # definido 10 primeiras linhas
+tail(esoph, n=10) # definido 10 últimas linhas
+```
+Dimensões
+```{r}
+dim(esoph) # Retorna numero de linhas e colunas
+dim(esoph)[1] # Retorna numero de linhas
+dim(esoph)[2] # Retorna numero de colunas
+```
+Comprimento
+```{r}
+#se usar com objeto bidimensional vai retornar colunas
+length(islands) # Retorna numero de elementos
+```
+Nomes de Colunas
+```{r}
+colnames(esoph) # Retorna nomes das colunas
+```
+Nome de Linhas
+```{r}
+rownames(esoph) # Retorna nomes das linhas
+```
+Resumo
+```{r}
+summary(esoph) # Retorna resumo, min, max, média, quartis
+```
+Escolher Arquivo
+```{r}
+x = file.choose() # Escolher arquivo - Retorna caminho do arquivo
+x
+```
+

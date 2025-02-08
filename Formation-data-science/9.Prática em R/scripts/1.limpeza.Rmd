@@ -1,0 +1,152 @@
+---
+Formação Cientista de Dados
+Limpeza e Tratamento de Dados
+---
+
+```{r}
+#importa dados, string vazio como NA, string como fatores
+dados = read.csv("Formação Cientista de Dados/9.Prática em R/dados/Churn.csv", sep = ";", na.strings="", stringsAsFactors=T)
+#na.strings = "" para tratar string vazia como NA
+#stringsAsFactors = T para tratar strings como fatores - True
+head(dados)
+# verificando a estrutura dos dados
+summary(dados)
+# resumo dos dados
+```
+Colunas
+```{r}
+#Dar nomes corretos as colunas
+colnames(dados) = c("Id","Score","Estado","Genero","Idade","Patrimonio","Saldo","Produtos","TemCartCredito","Ativo","Salario","Saiu")
+# nomear colunas
+head(dados)
+```
+Explorar Dados, colunas categóricas
+```{r}
+#Estados
+counts = table(dados$Estado) #conta valores
+barplot(counts, main="Estados", xlab="Estados") #gráfico de barras
+# main: título do gráfico
+# xlab: rótulo do eixo x
+
+#Gênero
+counts = table(dados$Genero)
+barplot(counts, main="Gêneros", xlab="Gêneros")
+```
+Explorar, colunas numéricas
+```{r}
+#Score
+summary(dados$Score) # resumo
+boxplot(dados$Score) # grafico de caixa
+hist(dados$Score)# histograma
+```
+Idade
+```{r}
+summary(dados$Idade) # resumo
+boxplot(dados$Idade) # grafico de caixa
+hist(dados$Idade) # histograma
+```
+Saldo
+```{r}
+summary(dados$Saldo) # resumo
+boxplot(dados$Saldo) # grafico de caixa
+hist(dados$Saldo) # histograma
+```
+Salário
+```{r}
+summary(dados$Salario) # resumo
+boxplot(dados$Salario) # grafico de caixa
+boxplot(dados$Salario,outline = F) # grafico de caixa sem outliers, sem valores discrepantes
+```
+Valore faltantes - NAs
+```{r}
+#valores faltantes NAs
+dados[!complete.cases(dados),] #verificar NAs, complete.cases retorna TRUE para linhas completas, ! - negação
+```
+Salários
+```{r}
+#tratar salários
+summary(dados$Salario) #resumo
+#ver mediana
+median(dados$Salario,na.rm = T) #mediana, na.rm = T para ignorar NAs
+#atribuir mediana a NAs
+dados[is.na(dados$Salario),]$Salario = median(dados$Salario,na.rm = T) #substituir NAs pela mediana
+#buscar NAS em salario para checar
+dados[!complete.cases(dados$Salario),] #verificar NAs
+```
+Falta de padronização em Gênero
+```{r}
+#Ver valores
+unique(dados$Genero) #valores únicos
+summary(dados$Genero) #resumo
+#tranformar F e Fem em Feminino
+# "" , M em Masculino (moda)
+dados[is.na(dados$Genero) | dados$Genero == "M" ,]$Genero = "Masculino" #substituir NAs e M
+dados[dados$Genero == "F" | dados$Genero == "Fem", ]$Genero = "Feminino" #substituir F e Fem
+#ver resultado
+summary(dados$Genero) #resumo
+#remover levels não utilizados
+dados$Genero =   factor(dados$Genero) #transformar em fator, para remover levels não utilizados
+#visualizar novamente
+summary(dados$Genero) #resumo
+```
+Idades fora do domínio
+```{r}
+summary(dados$Idade) #resumo
+#fora do dominio, numérico - ver idades anormais
+dados[dados$Idade<0 | dados$Idade>110 ,]$Idade # idades anormais
+#não temos idade NAs
+dados[is.na(dados$Idade),] # idades NAs
+#opção, preencher com mediana
+median(dados$Idade) #mediana
+#subtituição
+dados[dados$Idade<0 | dados$Idade>110 ,]$Idade = median(dados$Idade) #substituir idades anormais
+#buscamos novamente idades anormais
+dados[dados$Idade<0 | dados$Idade>110 ,] # idades anormais
+summary(dados$Idade) #resumo
+```
+Dados duplicados
+```{r}
+#buscar duplicados pelo ID
+x =  dados[duplicated(dados$Id),] # duplicados, duplicated retorna TRUE para duplicados
+x
+#verificamos que o ID 81 está duplicado
+#vamos excluir pelo indice 82
+dados = dados[-c(82),] #excluir duplicado
+
+#buscamos a linha que estava duplicada
+dados[dados$Id == x$Id ,] #buscamos a linha que estava duplicada
+#verificamos novamente duplicados
+x =  dados[duplicated(dados$Id),] # duplicados
+x
+```
+Estado fora do domínio
+```{r}
+#fora do dominio - categorico
+unique(dados$Estado) #valores únicos
+summary(dados$Estado) #resumo
+#preencher com a moda, RS
+dados[!dados$Estado %in% c("RS","SC","PR"),]$Estado = "RS" #substituir estados fora do dominio
+summary(dados$Estado) #resumo
+#removemos fatores não usados
+dados$Estado = factor(dados$Estado) #transformar em fator, para remover levels não utilizados
+#visualizar novamente
+summary(dados$Estado) #resumo
+```
+Outliers
+```{r}
+#outliers, criando um parametro com desvio padrão
+desv = sd(dados$Salario, na.rm = T) #desvio padrão
+desv
+dados[dados$Salario >= 2 *desv  , ]$Salario #outliers, acima de 2 desvios padrão
+#outra forma, resultado semelhante, mas sem os NAs
+boxplot(dados$Salario) #grafico de caixa
+boxplot(dados$Salario, outline = F) #grafico de caixa sem outliers
+x = boxplot(dados$Salario)$out #valores discrepantes
+x
+#atualizamos todos para mediana
+median(dados$Salario) #mediana
+dados[dados$Salario >= 2 *desv  , ]$Salario = median(dados$Salario) #substituir outliers
+#checamos se sairam os outliers
+dados[dados$Salario >= 2 *desv  , ]$Salario #outliers, acima de 2 desvios padrão
+```
+

@@ -1,0 +1,74 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Lattice
+---
+
+```{r}
+# este pacote não precisa instalar!
+library(lattice) # gráficos
+```
+Boxplot
+```{r}
+bwplot(trees$Volume) # bwplot é boxplot
+bwplot(trees$Volume, main = "Árvores", xlab = "Volume") # main é o título, xlab é o rótulo do eixo x
+```
+Histograma
+Aspecto é a proporção, nint número de quebras, type: percent, count, density
+```{r}
+histogram(trees$Volume, main = "Árvores", xlab = "Volume", aspect = 1, type = "percent", nint = 5)
+```
+Histograma condicional
+```{r}
+# Peso das galinhas de acordo com alimentação
+chickwts
+# histrograma
+histogram(chickwts$weight) # histograma
+# agregamos dados
+aggregate(chickwts$weight, by = list(chickwts$feed), FUN = sum) # agregamos dados, by é o agrupamento, FUN é a função
+# histograma condicional
+histogram(~ weight | feed, data = chickwts) #  ~ é a variável dependente, | é a condicional
+```
+Gráfico de dispersão condicional
+CO2, seis plantas em dois locais, refrigeradas ou não durante a noite
+```{r}
+# CO2, conc: concentração de co2, uptake: captação de co2
+CO2
+xyplot(CO2$conc ~ CO2$uptake) # xyplot é o gráfico de dispersão
+# type é a origem
+xyplot(CO2$conc ~ CO2$uptake | CO2$Type) # | é a condicional
+# regrigerado ou não
+xyplot(CO2$conc ~ CO2$uptake | CO2$Treatment) # | é a condicional
+```
+Cancer de esofago
+agegp: idade, alcgp: alcool, tobgp: tabaco
+```{r}
+esoph
+dotplot(esoph$alcgp ~ esoph$ncontrols, data = esoph) # dotplot é o gráfico de pontos
+dotplot(esoph$alcgp ~ esoph$ncontrols | esoph$tobgp) # | é a condicional
+```
+Matriz de dispersão
+```{r}
+splom(~ CO2[4:5] | CO2$Type, CO2) # splom é a matriz de dispersão, ~ é a variável dependente, | é a condicional
+```
+Densidade condicional
+```{r}
+densityplot(~ CO2$conc | CO2$Treatment, plot.points = FALSE) # densityplot é a densidade, ~ é a variável dependente, | é a condicional
+densityplot(CO2$conc) # densityplot é a densidade
+densityplot(~ CO2$conc | CO2$Treatment) # ~ é a variável dependente, | é a condicional
+densityplot(~ CO2$conc | CO2$Treatment, plot.points = FALSE) # ~ é a variável dependente, | é a condicional
+```
+Gráfico 3D
+Spray para repelir abelhas
+```{r}
+OrchardSprays # dados
+cloud(decrease ~ rowpos * colpos, data = OrchardSprays) # cloud é o gráfico 3D, ~ é a variável dependente, * é a interação
+cloud(decrease ~ rowpos * colpos, groups = treatment, data = OrchardSprays)
+# groups é o agrupamento, ~ é a variável dependente, * é a interação, data é o conjunto de dados
+```
+Level plot
+Circunferência, largura e volume de árvores
+```{r}
+trees # dados
+levelplot(Girth ~ Height * Volume, data = trees) # levelplot é o gráfico de nível, ~ é a variável dependente, * é a interação
+```
+

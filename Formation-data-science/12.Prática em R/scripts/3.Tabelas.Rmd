@@ -1,0 +1,27 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Tabelas
+---
+
+```{r}
+# install.packages("stargazer")
+library(stargazer) # Biblioteca para criar tabelas
+```
+Formato Latex
+```{r}f
+stargazer(iris) # Tabela com dados da iris
+```
+Html
+```{r}
+stargazer(iris, type = "html") # Tabela com dados da iris, formato html
+```
+Texto
+```{r}
+stargazer(iris, type = "text") # Tabela com dados da iris, formato texto
+```
+Salva em Disco
+```{r}
+stargazer(women, out = "women.tex", summary = FALSE) # Salva a tabela em disco
+# out = "nome_do_arquivo" - Nome do arquivo, summary = FALSE - Não exibe o resumo
+```
+
