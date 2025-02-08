@@ -1,0 +1,10 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Ajuda
+---
+
+```{r}
+help(sd) # ajuda para função sd
+head(iris) # ajuda apertando F1 no RStudio
+```
+

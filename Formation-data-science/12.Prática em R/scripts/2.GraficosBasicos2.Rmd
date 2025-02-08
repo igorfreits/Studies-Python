@@ -1,0 +1,50 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Gráficos Básicos - Continuação
+---
+Boxplot
+```{r}
+boxplot(trees$Volume, main = "Árvores", xlab = "Volume") # gráfico simples, boxplot: gráfico de caixa
+boxplot(trees$Volume, main = "Árvores", xlab = "Volume", col = "blue", horizontal = TRUE) # horizontal
+boxplot(trees$Volume, main = "Árvores", xlab = "Volume", col = "blue", outline = F) # sem outliers, sem valores discrepantes
+```
+```{r}
+# notch
+boxplot(trees$Height, main = "Árvores", xlab = "Altura", col = "blue", notch = TRUE)
+# intervalo de confiança, se não se sobrepõe, a mediana é significativamente diferente
+
+# dados do gráfico
+boxplot.stats(trees$Height) # lê apenas uma informação
+# lê apenas uma informação
+boxplot.stats(trees$Height)$stats # lê todas as informações
+```
+Vários gráficos
+```{r}
+boxplot(trees) # gráfico de várias variáveis
+```
+Agregação
+```{r}
+InsectSprays # dados
+spray <- aggregate(. ~ spray, data = InsectSprays, sum)
+# agrupar por spray e soma, . ~ .: todas as variáveis
+spray
+```
+Gráfico de Barras
+```{r}
+# Executar com ctrl+shift+enter
+barplot(spray$count, col = gray.colors(6), xlab = "Spray", ylab = "Total", names.arg = spray$spray)
+# barplot: gráfico de barras, col: cores, xlab: rótulo do eixo x, ylab: rótulo do eixo y, names.arg: rótulo das barras
+box() # moldura
+```
+Gráfico de Setor - Pizza
+```{r}
+pie(spray$count, labels = spray$spray, main = "Spray", col = c(1:6))
+# pie: gráfico de setor, labels: rótulos, col: cores, main: título
+```
+Pizza com legenda
+```{r}
+pie(spray$count, labels = NA, main = "Spray", col = c(1:6))
+legend("bottomright", legend = spray$spray, cex = 1, fill = c(1:6))
+# legend: legenda, cex: tamanho da fonte, fill: cores
+```
+

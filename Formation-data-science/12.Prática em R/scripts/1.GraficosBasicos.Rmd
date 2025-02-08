@@ -1,0 +1,77 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Gráficos Básicos
+---
+Histograma
+```{r}
+trees # dados para o exemplo
+hist(trees$Height) # histograma, altura das árvores
+hist(trees$Height, main = "Árvores", ylab = "Frequência", xlab = "Altura", col = "blue")
+# main = título, ylab = rótulo do eixo y, xlab = rótulo do eixo x, col = cor
+
+hist(trees$Height,
+    main = "Árvores", ylab = "Frequência", xlab = "Altura", col = "blue",
+    density = 20, breaks = 20
+)
+# density = densidade da cor/barra, breaks = intervalos de quebra
+```
+Densidade
+```{r}
+densidade <- density(trees$Height)
+plot(densidade) # gráfico de densidade
+```
+Densidade sobre o Histograma, parâmetro par
+```{r}
+# Executar com ctrl+shift+enter
+hist(trees$Height, main = NULL, xlab = NULL, ylab = NULL) # sem rótulos, para sobrepor
+# main = título, ylab = rótulo do eixo y, xlab = rótulo do eixo x, col = cor
+par(new = TRUE)
+# permite sobrepor um gráfico ao outro
+plot(densidade)
+```
+Dispersão
+```{r}
+plot(trees$Girth, trees$Volume) # dispersão, circunferência x volume
+plot(trees$Girth, trees$Volume, main = "Árvores") # com título
+plot(trees$Girth, trees$Volume, ylab = "Cirunferência", xlab = "Volume", col = "blue", main = "Árvores") # com rótulos e cor
+
+# pch muda o elementog gráfico
+plot(trees$Girth, trees$Volume, ylab = "Cirunferência", xlab = "Volume", col = "blue", main = "Árvores", pch = 20) # muda o elemento gráfico, icones
+```
+Muda tipo
+```{r}
+plot(trees$Girth, trees$Volume, ylab = "Cirunferência", xlab = "Volume", col = "blue", main = "Árovres", pch = 20, type = "l") # muda o tipo de gráfico, linha
+# type = l, p, b, o, h, s, n - linha, ponto, ambos, linha sobreposta, histograma, escada, sem linha
+```
+Tremulação, diminui sobre posição
+```{r}
+plot(jitter(trees$Girth), trees$Volume, ylab = "Cirunferência", xlab = "Volume", col = "blue", main = "Árvores")
+# jitter = tremulação, diminui sobreposição
+```
+Legenda com dimensão categórica
+```{r}
+plot(CO2$conc, CO2$uptake, pch = 20, col = CO2$Treatment) # dispersão, concentração x absorção
+
+# "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center"
+legend("bottomright", legend = c("nonchilled", "chilled"), cex = 1, fill = c("black", "red"))
+# legend = legenda, cex = tamanho, fill = cor, bottomright = posição
+```
+Novos dados
+```{r}
+plot(trees) # gráfico de dispersão com todos os dados
+```
+Divisão da tela
+```{r}
+# Executar com crtl+shift+enter
+split.screen(figs = c(2, 2)) # divide a tela em 2x2, figs = c(linhas, colunas)
+screen(1) # tela 1
+plot(trees$Girth, trees$Volume) # dispersão, circunferência x volume
+screen(2) # tela 2
+plot(trees$Girth, trees$Height) # dispersão, circunferência x altura
+screen(3) # tela 3
+plot(trees$Height, trees$Volume) # dispersão, altura x volume
+screen(4) # tela 4
+hist(trees$Volume) # histograma, volume
+close.screen(all = TRUE) # fecha todas as telas
+```
+

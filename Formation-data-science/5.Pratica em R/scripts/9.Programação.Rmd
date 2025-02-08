@@ -1,0 +1,56 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Estruturas de Programação
+---
+If - Else: Estrutura de decisão
+```{r}
+a = 10
+b = 20
+if (a < b) # if (teste)
+{
+  print("Verdadeiro") # comandos
+}else # else - caso contrário
+{
+  print("Falso") # comandos
+}
+```
+Ifelse: Estrutura de decisão compacta
+```{r}
+x = ifelse(a < 10,"A é maior","A não é maior") #ifelse(teste, verdadeiro, falso) - Compacto
+x
+```
+For: Estrutura de repetição
+```{r}
+for (i in 1:10) { # for (variável in sequência)
+  print(i)
+  }
+```
+While: Estrutura de repetição
+```{r}
+a = 1
+while(a <= 10)
+{
+  print(a)
+  a = a+1
+}
+
+a = 1
+while (TRUE) { # loop infinito
+  print(paste(a, "- Loop infinito")) # paste() concatena
+  a = a + 1
+}
+
+```
+Função: Estrutura de reutilização de código
+```{r}
+parouimpar <- function(x) {
+  
+  return(ifelse(x%%2==0,"Par","impar"))
+  
+}
+
+parouimpar(5)
+parouimpar(12)
+parouimpar(0)
+```
+

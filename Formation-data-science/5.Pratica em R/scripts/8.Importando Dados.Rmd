@@ -1,0 +1,27 @@
+---
+Formação Cientista de Dados - Prof. Fernando Amaral
+Importando Dados
+---
+```{r}
+# install.packages("openxlsx")  # instalar pacote
+library(openxlsx) # pacote para importar arquivos excel
+```
+Texto
+```{r}
+#texto
+x = read.csv(file.choose(), header = TRUE, sep = ",")
+# escolhe o arquivo, header = TRUE indica que a primeira linha é o cabeçalho, sep = "," indica que o separador é a vírgula
+x
+x = read.csv("Credit.csv", header = TRUE, sep = ",") # importar arquivo
+x = read.csv("Formação Cientista de Dados/5.Pratica em R/dados/Credit.csv", header = TRUE, sep = ",")
+x
+```
+Excel
+```{r}
+dados = read.xlsx("Credit.xlsx", sheet= 1)
+dados = read.xlsx("Formação Cientista de Dados/5.Pratica em R/dados/Credit.xlsx",sheet= 1)
+# importar arquivo excel, sheet = 1 indica a primeira planilha
+dados
+```
+
+
