@@ -4,21 +4,21 @@ Tipos de Dados e Operadores
 ---
 
 ```{r}
-#declaração implicita numérico
-delta = 8
+# declaração implicita numérico
+delta <- 8
 class(delta)
 ```
 L declara como inteiro
 ```{r}
-delta = 8L
+delta <- 8L
 class(delta)
 ```
 Outros tipos
 ```{r}
-logico = TRUE
-logico2 = F
-caractere = "Texto"
-caractere2 = 'Texto'
+logico <- TRUE
+logico2 <- F
+caractere <- "Texto"
+caractere2 <- "Texto"
 
 class(caractere)
 class(logico)
@@ -28,19 +28,18 @@ class(caractere2)
 ```
 Operações Matemáticas
 ```{r}
-c = 2
-d = 4
+c <- 2
+d <- 4
 (c + d) * d
-e = (c + d) * d
+e <- (c + d) * d
 e
 ```
 Testes lógicos
 ```{r}
-a = 1
-b = 2
+a <- 1
+b <- 2
 a < b
 a == b
-
 ```
 Raiz Quadrada
 ```{r}

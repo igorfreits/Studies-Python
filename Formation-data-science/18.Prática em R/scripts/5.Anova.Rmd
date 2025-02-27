@@ -5,7 +5,7 @@ Anova
 Anova
 Carrega dados
 ```{r}
-tratamento = read.csv("anova.csv", sep=";")
+tratamento <- read.csv("Studies-Python/Formation-data-science/18.Prática em R/dados/anova.csv", sep = ";")
 tratamento
 ```
 Visulizamos os distribuição dos remedios por horas
@@ -16,18 +16,21 @@ Executamos Análise de variância
 Observar valor de p maior que 0,05 (Pr(>F))
 Hipótese nula de que não há diferença significativa
 ```{r}
-an =  aov(Horas ~ Remedio, data=tratamento)
+an <- aov(Horas ~ Remedio, data = tratamento)
+# an = análise de variância
+# aov(formula, data) = análise de variância
 summary(an)
 ```
 Anova de dois fatores
 Nenhum valor de P mostra diferença significativa
 ```{r}
-an =  aov(Horas ~ Remedio * Sexo, data=tratamento)
+an <- aov(Horas ~ Remedio * Sexo, data = tratamento)
 summary(an)
 ```
 Se houver diferença o teste de Tukey é executado
 ```{r}
-tukey = TukeyHSD(an)
+tukey <- TukeyHSD(an)
+# TukeyHSD(an) = teste de Tukey
 tukey
 ```
 Gráficos do teste

@@ -4,18 +4,18 @@ Estruturas de Dados
 ---
 Vetores - sequência de dados do mesmo tipo
 ```{r}
-X = c(1,2,3,4,5) # vetor numérico
+X <- c(1, 2, 3, 4, 5) # vetor numérico
 X
 X[1]
-X[1] = 50
+X[1] <- 50
 X[1]
 X
 ```
 Vetores de outros tipos - character e inteiro
 ```{r}
-Y = c("a","b","c","d") # vetor  character
+Y <- c("a", "b", "c", "d") # vetor  character
 Y
-Z = c(1L,2L,3L) # vetor  inteiro
+Z <- c(1L, 2L, 3L) # vetor  inteiro
 Z
 class(Z)
 class(Y)
@@ -28,39 +28,39 @@ rownames(VADeaths) # nomes das linhas
 ```
 Matrizes
 ```{r}
-#só coluna 1
-VADeaths[,1] # só coluna 1
-#so linha 1
-VADeaths[1,] # só linha 1
-#linhas 1 até 3
-VADeaths[1:3,] # linhas 1 até 3
-VADeaths[c(1,3,5),] # linhas 1,3 e 5
+# só coluna 1
+VADeaths[, 1] # só coluna 1
+# so linha 1
+VADeaths[1, ] # só linha 1
+# linhas 1 até 3
+VADeaths[1:3, ] # linhas 1 até 3
+VADeaths[c(1, 3, 5), ] # linhas 1,3 e 5
 ```
 Data Frame - matriz que pode conter colunas de diferentes tipos
 ```{r}
-longley # 
-#funcina como matriz
-longley[,1:3] # só colunas 1,2 e 3
-#acessar coluna com &
+longley #
+# funcina como matriz
+longley[, 1:3] # só colunas 1,2 e 3
+# acessar coluna com &
 longley$Unemployed
-#ou nome
-longley['Unemployed'] # acessar coluna com nome
+# ou nome
+longley["Unemployed"] # acessar coluna com nome
 ```
 Listas - vetores que podem conter elementos de diferentes tipos
 ```{r}
 ability.cov # lista
-#acessando elementos
+# acessando elementos
 ability.cov$cov
 ability.cov[1] #  acessando primeiro elemento
-#verificando que são objetos diferentes
+# verificando que são objetos diferentes
 class(ability.cov$cov)
 class(ability.cov$center)
-#acesando elemento dentro da lista
-ability.cov$cov[,1:3]
+# acesando elemento dentro da lista
+ability.cov$cov[, 1:3]
 ```
 Fatores - vetores que representam dados categóricos
 ```{r}
-#fatores
+# fatores
 state.region
 ```
 
