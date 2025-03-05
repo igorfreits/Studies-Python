@@ -4,50 +4,51 @@ Regressão Logistica
 ---
 Carga de dados
 ```{r}
-eleicao = read.csv("Eleicao.csv",sep=';',header=T)
+eleicao <- read.csv("Studies-Python/Formation-data-science/24.Prática em R/dados/Eleicao.csv", sep = ";", header = T)
 eleicao
 ```
 Gráfico e visualização
 ```{r}
-plot(eleicao$DESPESAS,eleicao$SITUACAO)
-summary(eleicao)
+plot(eleicao$DESPESAS, eleicao$SITUACAO) # Gráfico de dispersão
+summary(eleicao) # Sumário dos dados
 ```
 Correlação
 ```{r}
-cor(eleicao$DESPESAS,eleicao$SITUACAO)
+cor(eleicao$DESPESAS, eleicao$SITUACAO) # Correlação entre despesas e situação
 ```
 Modelo de Regressão Logística
 ```{r}
-modelo = glm(SITUACAO ~ DESPESAS,data=eleicao,family="binomial") 
+modelo <- glm(SITUACAO ~ DESPESAS, data = eleicao, family = "binomial") # Modelo de Regressão Logística
+# glm - Generalized Linear Model, family = "binomial" - modelo binomial
 summary(modelo)
 ```
 Modelo comparado aos dados
 ```{r}
-#Executar com ctrl+shift+enter
-plot(eleicao$DESPESAS,eleicao$SITUACAO,col='red',pch=20)
-points(eleicao$DESPESAS, modelo$fitted, pch=4)
+# Executar com ctrl+shift+enter
+plot(eleicao$DESPESAS, eleicao$SITUACAO, col = "red", pch = 20) # Gráfico de dispersão com pontos originais
+points(eleicao$DESPESAS, modelo$fitted, pch = 4) # Pontos do modelo
 ```
 Testar o modelo com os próprios candidatos
 ```{r}
-prever = predict(modelo,newdata=eleicao,type="response"  )
-prever = prever >= 0.5
-prever
+prever <- predict(modelo, newdata = eleicao, type = "response") # Previsão da situação dos novos candidatos
+prever <- prever >= 0.5 # Transformar a probabilidade em uma classificação binária (sim/não)
+prever # Classificação binária dos novos candidatos
 ```
 Avaliar performance
 ```{r}
-confusao = table(prever,eleicao$SITUACAO)
-confusao
-taxaacerto = (confusao[1] + confusao[4]) / sum(confusao)
-taxaacerto
+confusao <- table(prever, eleicao$SITUACAO) # Matriz de confusão
+confusao # Matriz de confusão
+taxaacerto <- (confusao[1] + confusao[4]) / sum(confusao) # Taxa de acerto do modelo
+taxaacerto # Taxa de acerto do modelo
 ```
 Novos candidatos
 ```{r}
-prevereleicao = read.csv("NovosCandidatos.csv",sep=';',header=T)
+prevereleicao <- read.csv("Studies-Python/Formation-data-science/24.Prática em R/dados/NovosCandidatos.csv", sep = ";", header = T)
 prevereleicao
 ```
 Previsão
 ```{r}
-prevereleicao$RESULT = predict(modelo,newdata=prevereleicao,type="response") 
-prevereleicao$RESULT
-prevereleicao$RESULT >= 0.5
+prevereleicao$RESULT <- predict(modelo, newdata = prevereleicao, type = "response") # Previsão da situação dos novos candidatos
+prevereleicao$RESULT # Classificação binária dos novos candidatos
+prevereleicao$RESULT >= 0.5 # Transformar a probabilidade em uma classificação binária (sim/não)
 ```
