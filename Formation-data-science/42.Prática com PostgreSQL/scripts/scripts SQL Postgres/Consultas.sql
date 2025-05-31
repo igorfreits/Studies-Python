@@ -39,7 +39,7 @@ having count(idvendedor) > 40
 select nome, total from vendas, vendedores
 where vendas.idvendedor = vendedores.idvendedor
 --inner join
-select count(*) from vendasinner join vendedores on(vendas.idvendedor = vendedores.idvendedor )
+select count(*) from vendas inner join vendedores on(vendas.idvendedor = vendedores.idvendedor )
 --left join
 select count(*)  from vendas
 left join vendedores on 

@@ -4,29 +4,41 @@ PostgreSQL
 ---
 Pacote
 ```{r}
-#install.packages("RPostgreSQL")
-library("RPostgreSQL")
+# install.packages("RPostgreSQL")# lib desatualizada
+# install.packages("RPostgres")
+library("RPostgreSQL") # lib desatualizada
+library(DBI)
 ```
 Conexao com banco de dados
 ```{r}
-conexao = dbConnect("PostgreSQL", dbname="AulaSQL", host="localhost", port=5432,
-                    user="postgres", password=123456)
+# Conexão com o banco de dados PostgreSQL
+conexao <- dbConnect(RPostgres::Postgres(),
+      dbname = "Study-SQL", host = "localhost", port = 5432,
+      user = "postgres", password = 12345
+)
+# dbConnect() é uma função do pacote DBI que estabelece uma conexão com o banco de dados PostgreSQL.
+# RPostgres::Postgres() é uma função do pacote RPostgres que especifica o driver a ser usado para a conexão.
+# dbname é o nome do banco de dados, host é o endereço do servidor, port é a porta de conexão,
+# user é o nome de usuário e password é a senha para autenticação.
+# host, port, user e password são parâmetros que especificam as informações de conexão com o banco de dados.
 ```
 Consulta SQL
 ```{r}
-#Executar com ctrl + shift + enter
-sql = " SELECT QUANTIDADE, VALORTOTAL, PRODUTO, TOTAL FROM ITENSVENDA  IV
-      INNER JOIN VENDAS V ON (IV.IDVENDA = V.IDVENDA) 
+# Executar com ctrl + shift + enter
+# Consulta SQL para obter dados de vendas
+sql <- " SELECT QUANTIDADE, VALORTOTAL, PRODUTO, TOTAL FROM ITENSVENDA  IV
+      INNER JOIN VENDAS V ON (IV.IDVENDA = V.IDVENDA)
       INNER JOIN PRODUTOS P ON (IV.IDPRODUTO = P.IDPRODUTO)"
-vendas = dbGetQuery(conexao, sql)
+vendas <- dbGetQuery(conexao, sql) # Executa a consulta SQL e armazena o resultado em um data frame
 ```
 Dados retornados
 ```{r}
-class(vendas)
-dim(vendas)
-head(vendas)
+class(vendas) # Verifica a classe do objeto
+dim(vendas) # Verifica as dimensões do data frame
+head(vendas) # Exibe as primeiras linhas do data frame
 ```
 Encerra a conexão
 ```{r}
+#  Encerra a conexão com o banco de dados
 dbDisconnect(conexao)
 ```
